@@ -1,765 +1,591 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Carnet de voyage — Îles Féroé (12–19 juin 2026)</title>
-  <style>
-    :root{
-      --bg:#0b1220; --card:#121b2e; --card2:#0f1729; --text:#e8eefc; --muted:#b7c2dd;
-      --accent:#6ee7ff; --accent2:#a78bfa; --ok:#34d399; --warn:#fbbf24; --danger:#fb7185;
-      --border:rgba(255,255,255,.10);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 700px at 20% 0%, rgba(110,231,255,.15), transparent 55%),
-                  radial-gradient(900px 600px at 80% 10%, rgba(167,139,250,.12), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.5;
-    }
-    a{color:var(--accent); text-decoration:none}
-    a:hover{text-decoration:underline}
-    header{
-      padding:28px 18px 14px; position:sticky; top:0; backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(11,18,32,.92), rgba(11,18,32,.65));
-      border-bottom:1px solid var(--border); z-index:5;
-    }
-    .wrap{max-width:1100px; margin:0 auto}
-    .title{display:flex; gap:14px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap}
-    h1{margin:0; font-size:22px}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--border);
-      border-radius:999px; background:rgba(255,255,255,.04); color:var(--muted); font-size:13px;
-    }
-    nav{ margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; }
-    nav a{
-      padding:8px 10px; border:1px solid var(--border); border-radius:10px;
-      background:rgba(255,255,255,.03); color:var(--text); font-size:13px;
-    }
-    nav a:hover{background:rgba(255,255,255,.06); text-decoration:none}
-    main{padding:18px}
-    section{margin:18px 0}
-    .grid{display:grid; gap:14px}
-    @media (min-width: 920px){
-      .grid.cols-2{grid-template-columns: 1fr 1fr}
-      .grid.cols-3{grid-template-columns: 1.2fr .9fr .9fr}
-    }
-    .card{
-      border:1px solid var(--border); border-radius:16px; background:rgba(18,27,46,.75);
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
-      padding:14px 14px;
-    }
-    .card h2,.card h3{margin:0 0 10px}
-    .card h2{font-size:16px}
-    .card h3{font-size:14px; color:var(--muted); font-weight:600}
-    .muted{color:var(--muted)}
-    .kvs{display:grid; grid-template-columns: 160px 1fr; gap:8px 12px; margin:0}
-    .kvs div{padding:6px 0; border-bottom:1px dashed rgba(255,255,255,.10)}
-    .kvs div:nth-last-child(-n+2){border-bottom:none}
-    .tag{
-      display:inline-flex; padding:3px 8px; border-radius:999px;
-      border:1px solid var(--border); background:rgba(255,255,255,.04);
-      font-size:12px; color:var(--muted); margin-right:6px;
-    }
-    .btn{
-      display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:12px;
-      border:1px solid var(--border); background:rgba(255,255,255,.04); color:var(--text);
-      font-size:13px; cursor:pointer;
-    }
-    .btn:hover{background:rgba(255,255,255,.07)}
-    .timeline{display:grid; gap:10px}
-    details{ border:1px solid var(--border); border-radius:14px; background:rgba(15,23,41,.7); padding:10px 12px; }
-    summary{ cursor:pointer; list-style:none; display:flex; align-items:flex-start; gap:10px; }
-    summary::-webkit-details-marker{display:none}
-    .dot{
-      width:10px; height:10px; border-radius:50%; margin-top:6px;
-      background: linear-gradient(45deg, var(--accent), var(--accent2));
-      box-shadow:0 0 0 4px rgba(110,231,255,.12);
-      flex:0 0 auto;
-    }
-    .daytitle{font-weight:700}
-    .row{display:flex; gap:10px; flex-wrap:wrap}
-    ul{margin:8px 0 0 18px}
-    .small{font-size:12px}
-    .callout{
-      border-left:3px solid var(--accent); padding:10px 12px; background:rgba(110,231,255,.06);
-      border-radius:12px; color:var(--text); margin-top:10px;
-    }
-    .warn{border-left-color: var(--warn); background: rgba(251,191,36,.08)}
-    .ok{border-left-color: var(--ok); background: rgba(52,211,153,.08)}
-    .danger{border-left-color: var(--danger); background: rgba(251,113,133,.08)}
-    footer{padding:28px 18px; color:var(--muted); border-top:1px solid var(--border); margin-top:22px}
-    .hr{height:1px; background:rgba(255,255,255,.10); margin:12px 0}
-    .table{
-      width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:14px;
-      border:1px solid var(--border); background:rgba(15,23,41,.7);
-    }
-    .table th,.table td{padding:10px 10px; font-size:13px; border-bottom:1px solid rgba(255,255,255,.08); vertical-align:top}
-    .table th{color:var(--muted); text-align:left; background:rgba(255,255,255,.03)}
-    .table tr:last-child td{border-bottom:none}
-    code{background:rgba(255,255,255,.06); padding:2px 6px; border-radius:8px}
-  </style>
-</head>
-
-<body>
-<header>
-  <div class="wrap">
-    <div class="title">
-      <div>
-        <h1>Carnet de voyage — Îles Féroé (12 → 19 juin 2026)</h1>
-        <div class="row" style="margin-top:8px">
-          <span class="pill">4 voyageurs</span>
-          <span class="pill">Voiture Europcar</span>
-          <span class="pill">Logements Airbnb réservés</span>
-          <span class="pill">Objectif : visites, restos, randos</span>
-        </div>
-      </div>
-      <button class="btn" onclick="window.print()">Imprimer / PDF</button>
-    </div>
-
-    <nav aria-label="Navigation">
-      <a href="#essentiel">Essentiel</a>
-      <a href="#reservations">Réservations</a>
-      <a href="#planning">Planning</a>
-      <a href="#jours">Jour par jour</a>
-      <a href="#restaurants">Restaurants</a>
-      <a href="#randonnees">Randonnées</a>
-      <a href="#pratique">Infos pratiques</a>
-      <a href="#checklists">Checklists</a>
-    </nav>
-  </div>
-</header>
-
-<main class="wrap">
-
-  <section id="essentiel" class="grid cols-3">
-    <div class="card">
-      <h2>Essentiel (à garder sous la main)</h2>
-      <div class="kvs">
-        <div class="muted">Vol aller</div>
-        <div>Paris CDG T2B → Vágar (RC425) — <strong>12/06 17:00 → 18:40</strong></div>
-        <div class="muted">Vol retour</div>
-        <div>Vágar → Paris CDG T2B (RC424) — <strong>19/06 12:20 → 16:00</strong></div>
-        <div class="muted">Contrainte route</div>
-        <div><strong>≤ 4h</strong> de conduite / jour (objectif confort)</div>
-        <div class="muted">Rythme conseillé</div>
-        <div>1 “grand spot” + 1 balade + 1 resto / jour</div>
-      </div>
-      <div class="callout ok">
-        Astuce : aux Féroé, le plan B est indispensable. Prévois chaque jour une alternative “météo”.
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Carte & repères</h2>
-      <p class="muted small">Ajoute ici vos liens Google Maps “épingles” si vous en créez (parkings, points de vue, restos).</p>
-      <ul>
-        <li><strong>Tórshavn</strong> : capitale, base pratique Streymoy + Eysturoy</li>
-        <li><strong>Klaksvík</strong> : base Nord (Kalsoy, Viðoy, Kunoy…)</li>
-        <li><strong>Vágar</strong> : aéroport, cascades + accès Mykines</li>
-      </ul>
-      <div class="callout warn">
-        Attention : tunnels/îles peuvent nécessiter péages ou ferries. Garder une marge horaire.
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Contacts & urgence</h2>
-      <p class="muted small">À compléter avant départ (hors-ligne).</p>
-      <ul>
-        <li>Ambassade / assistance : <code>À compléter</code></li>
-        <li>Assurance voyage : <code>À compléter</code></li>
-        <li>Europcar Vágar : <code>À compléter</code></li>
-        <li>Hôte Airbnb Tórshavn : <code>À compléter</code></li>
-        <li>Hôte Airbnb Klaksvík : <code>À compléter</code></li>
-      </ul>
-      <div class="callout danger">
-        En cas de météo difficile : réduire la route, rester en zone urbaine, viser musées/cafés.
-      </div>
-    </div>
-  </section>
-
-  <section id="reservations" class="grid cols-2">
-    <div class="card">
-      <h2>Logements réservés (liens)</h2>
-      <p class="muted small">Ces liens servent de “rappel” pour retrouver l’annonce, les messages, les consignes d’arrivée.</p>
-      <ul>
-        <li><strong>Airbnb — Tórshavn</strong> :
-          <a href="https://www.airbnb.com/l/16RChEAn?s=67&unique_share_id=201a864d-a4cc-46ae-afa4-dd972818111f" target="_blank" rel="noopener">
-            ouvrir la réservation
-          </a>
-        </li>
-        <li><strong>Airbnb — Klaksvík</strong> :
-          <a href="https://www.airbnb.com/l/zoNIwV0l?s=67&unique_share_id=c682b4ad-d464-48ff-9ed9-31e51fbf786b" target="_blank" rel="noopener">
-            ouvrir la réservation
-          </a>
-        </li>
-
-        <li><strong>Airbnb — Vágar</strong> :
-          <a href="https://www.airbnb.com/l/p5vKArZ0" target="_blank" rel="noopener">
-            ouvrir la réservation
-          </a>
-        </li>
-      </ul>
-
-      <div class="hr"></div>
-
-      <h3>À noter sur place (à remplir)</h3>
-      <ul class="small">
-        <li>Adresse exacte + instructions check-in : <code>À compléter</code></li>
-        <li>Code boîte à clés / contact : <code>À compléter</code></li>
-        <li>Parking / accès : <code>À compléter</code></li>
-        <li>Heure check-out : <code>À compléter</code></li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>Voiture réservée (Europcar Vágar)</h2>
-      <div class="kvs">
-        <div class="muted">Réservation</div><div><strong>1198833055</strong></div>
-        <div class="muted">Pick-up</div><div>Aéroport de Vágar — <strong>12/06 19:15</strong></div>
-        <div class="muted">Drop-off</div><div>Aéroport de Vágar — <strong>19/06 10:15</strong></div>
-        <div class="muted">Véhicule</div><div>Toyota Corolla 2.0 Cross (ou équivalent), automatique, 5 places</div>
-        <div class="muted">Agence</div><div>2 FLOGVØLLURIN, SØRVÁGUR, 380 VÁGAR</div>
-      </div>
-
-      <div class="callout ok">
-        Check rapide au départ : photos (4 côtés + pare-brise + jantes), niveau carburant, pneus, essuie-glaces.
-      </div>
-
-      <h3 style="margin-top:10px">À garder dans la boîte à gants</h3>
-      <ul class="small">
-        <li>Contrat / email de confirmation</li>
-        <li>Permis + carte bancaire conducteur</li>
-        <li>Numéro assistance : <code>À compléter</code></li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="planning" class="card">
-    <h2>Planning synthèse</h2>
-    <table class="table" aria-label="Planning synthèse">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Base (logement)</th>
-          <th>Idée du jour (A)</th>
-          <th>Alternative météo (B)</th>
-          <th>Repas</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Ven 12/06</strong></td>
-          <td>Tórshavn</td>
-          <td>Arrivée + installation + centre</td>
-          <td>Cafés + promenade port</td>
-          <td>Dîner Tórshavn</td>
-        </tr>
-        <tr>
-          <td><strong>Sam 13/06</strong></td>
-          <td>Tórshavn</td>
-          <td>Streymoy : Vestmanna / Saksun</td>
-          <td>Musées + shopping local</td>
-          <td>Midi snack / Soir resto</td>
-        </tr>
-        <tr>
-          <td><strong>Dim 14/06</strong></td>
-          <td>Tórshavn</td>
-          <td>Eysturoy : Gjógv + Eiði</td>
-          <td>Balade courte + cafés</td>
-          <td>À réserver si besoin</td>
-        </tr>
-        <tr>
-          <td><strong>Lun 15/06</strong></td>
-          <td>Klaksvík</td>
-          <td>Trajet + stops panoramas</td>
-          <td>Trajet direct + détente</td>
-          <td>Dîner Klaksvík</td>
-        </tr>
-        <tr>
-          <td><strong>Mar 16/06</strong></td>
-          <td>Klaksvík</td>
-          <td>Kalsoy (ferry) + villages</td>
-          <td>Kunoy / Viðoy en voiture</td>
-          <td>Pique-nique + dîner</td>
-        </tr>
-        <tr>
-          <td><strong>Mer 17/06</strong></td>
-          <td>Klaksvík</td>
-          <td>Viðoy : Villingadalsfjall (selon niveau)</td>
-          <td>Balades courtes + cafés</td>
-          <td>Soir : cuisine maison</td>
-        </tr>
-        <tr>
-          <td><strong>Jeu 18/06</strong></td>
-          <td>Vágar (Airbnb)</td>
-          <td>Vágar : Sørvágsvatn / Bøur</td>
-          <td>Centre + points de vue faciles</td>
-          <td>Dernier dîner</td>
-        </tr>
-        <tr>
-          <td><strong>Ven 19/06</strong></td>
-          <td>—</td>
-          <td>Retour voiture + vol</td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="callout warn">
-      Le 18/06 : base sur Vágar (Airbnb) — pratique pour le retour (restitution voiture 19/06 à 10:15 à l’aéroport).
-    </div>
-  </section>
-
-  <section id="jours">
-    <div class="card">
-      <h2>Jour par jour (détails opérationnels)</h2>
-      <p class="muted small">Chaque jour : une version A (météo correcte) + une version B (météo dégradée). Ajustez selon le vent et les nuages.</p>
-
-      <div class="timeline">
-
-        <details open>
-          <summary>
-            <span class="dot"></span>
-            <div>
-              <div class="daytitle">Jour 1 — Ven 12/06 : Arrivée à Vágar → Tórshavn</div>
-              <div class="muted small">Pick-up voiture 19:15 • route vers Tórshavn • installation</div>
-            </div>
-          </summary>
-          <div class="hr"></div>
-          <div class="row">
-            <span class="tag">Objectif</span><span class="muted">Atterrir, récupérer la voiture, s’installer sans stress.</span>
-          </div>
-
-          <h3>Plan A</h3>
-          <ul>
-            <li>Récupération voiture (photos + vérifs).</li>
-            <li>Trajet vers Tórshavn, stop rapide si ciel dégagé : point de vue proche (sans détour).</li>
-            <li>Installation + promenade port / centre (Tinganes si accessible).</li>
-          </ul>
-
-          <h3>Plan B (fatigue / pluie)</h3>
-          <ul>
-            <li>Trajet direct + courses (supermarché) + dîner simple.</li>
-            <li>Préparer le programme du lendemain et les snacks/pique-niques.</li>
-          </ul>
-
-          <div class="callout ok">
-            Checklist arrivée : eau, snacks, adaptateur, couches chaudes, cartes/CB, réservation Airbnb, heure check-in.
-          </div>
-        </details>
-
-        <details>
-          <summary>
-            <span class="dot"></span>
-            <div>
-              <div class="daytitle">Jour 2 — Sam 13/06 : Streymoy (côtes & villages)</div>
-              <div class="muted small">Base Tórshavn • route modérée • paysages “carte postale”</div>
-            </div>
-          </summary>
-          <div class="hr"></div>
-
-          <h3>Plan A (météo ok)</h3>
-          <ul>
-            <li>Matin : route vers <strong>Vestmanna</strong> (falaises/points de vue selon accès).</li>
-            <li>Midi : snack/pique-nique abrité (prévoir coupe-vent).</li>
-            <li>Après-midi : <strong>Saksun</strong> (lagune/village) ou <strong>Tjørnuvík</strong> (plage) selon temps.</li>
-            <li>Retour : dîner à Tórshavn.</li>
-          </ul>
-
-          <h3>Plan B (vent fort / plafonds bas)</h3>
-          <ul>
-            <li>Tórshavn : cafés + petites boutiques + musées/visites (centre).</li>
-            <li>Courte balade côtière facile si fenêtre météo (30–60 min).</li>
-          </ul>
-
-          <div class="callout warn">
-            Routes étroites : privilégier les arrêts “safe” (parking/élargissement) plutôt que les arrêts improvisés.
-          </div>
-        </details>
-
-        <details>
-          <summary>
-            <span class="dot"></span>
-            <div>
-              <div class="daytitle">Jour 3 — Dim 14/06 : Eysturoy (Gjógv • Eiði • panoramas)</div>
-              <div class="muted small">Base Tórshavn • boucle panoramique • spots photo</div>
-            </div>
-          </summary>
-          <div class="hr"></div>
-
-          <h3>Plan A</h3>
-          <ul>
-            <li>Matin : <strong>Gjógv</strong> (port naturel, balade facile).</li>
-            <li>Midi : café/snack + panorama.</li>
-            <li>Après-midi : <strong>Eiði</strong> (points de vue côtiers) + retour tranquille.</li>
-          </ul>
-
-          <h3>Plan B</h3>
-          <ul>
-            <li>Rester proche : balades courtes (1h) entre averses + cafés.</li>
-            <li>Option : visite de villages accessibles sans exposition aux falaises.</li>
-          </ul>
-
-          <div class="callout ok">
-            Photo : viser les “trous de lumière” (15–30 min). Avoir l’appareil prêt, sortir vite, repartir.
-          </div>
-        </details>
-
-        <details>
-          <summary>
-            <span class="dot"></span>
-            <div>
-              <div class="daytitle">Jour 4 — Lun 15/06 : Tórshavn → Klaksvík (avec arrêts)</div>
-              <div class="muted small">Changement de base • route raisonnable • stop(s) panoramas</div>
-            </div>
-          </summary>
-          <div class="hr"></div>
-
-          <h3>Plan A</h3>
-          <ul>
-            <li>Départ après check-out.</li>
-            <li>Arrêt(s) en route sur Eysturoy : village + point de vue (sans rallonger &gt;4h route totale).</li>
-            <li>Arrivée Klaksvík : installation + promenade port.</li>
-          </ul>
-
-          <h3>Plan B</h3>
-          <ul>
-            <li>Trajet direct + courses + repos.</li>
-            <li>Balade courte proche du logement.</li>
-          </ul>
-        </details>
-
-        <details>
-          <summary>
-            <span class="dot"></span>
-            <div>
-              <div class="daytitle">Jour 5 — Mar 16/06 : Kalsoy (ferry) ou Nord “facile”</div>
-              <div class="muted small">Base Klaksvík • île de Kalsoy si conditions favorables</div>
-            </div>
-          </summary>
-          <div class="hr"></div>
-
-          <h3>Plan A (Kalsoy)</h3>
-          <ul>
-            <li>Matin : ferry (arriver tôt, selon affluence).</li>
-            <li>Journée : villages + points de vue (adapter selon météo/vent).</li>
-            <li>Retour : dîner à Klaksvík.</li>
-          </ul>
-
-          <h3>Plan B (sans ferry)</h3>
-          <ul>
-            <li>Kunoy / Viðoy en voiture : routes panoramiques, balades courtes.</li>
-            <li>Cafés/pauses régulières, retour tôt.</li>
-          </ul>
-
-          <div class="callout warn">
-            Ferries : vérifier horaires la veille, viser la première rotation si vous voulez sécuriser la journée.
-          </div>
-        </details>
-
-        <details>
-          <summary>
-            <span class="dot"></span>
-            <div>
-              <div class="daytitle">Jour 6 — Mer 17/06 : Viðoy / Kunoy (nature + randos selon niveau)</div>
-              <div class="muted small">Base Klaksvík • grandes vues • choisir une rando “sûre”</div>
-            </div>
-          </summary>
-          <div class="hr"></div>
-
-          <h3>Plan A</h3>
-          <ul>
-            <li>Matin : route vers Viðoy (points de vue).</li>
-            <li>Option rando : choisir un itinéraire adapté au groupe (vent + pluie = prudence).</li>
-            <li>Après-midi : villages + retour détente.</li>
-          </ul>
-
-          <h3>Plan B</h3>
-          <ul>
-            <li>Balades faciles (30–90 min) + cafés.</li>
-            <li>Pause “photo” + lecture/repos.</li>
-          </ul>
-
-          <div class="callout ok">
-            Règle sécurité : si rafales fortes ou visibilité faible, préférer une balade basse altitude.
-          </div>
-        </details>
-
-        <details>
-          <summary>
-            <span class="dot"></span>
-            <div>
-              <div class="daytitle">Jour 7 — Jeu 18/06 : Vágar (Sørvágsvatn • Bøur • Gásadalur)</div>
-              <div class="muted small">Journée “iconique” • préparer le retour voiture le lendemain</div>
-            </div>
-          </summary>
-          <div class="hr"></div>
-
-          <h3>Plan A</h3>
-          <ul>
-            <li>Matin : <strong>Sørvágsvatn / Trælanípa</strong> (balade populaire, partir tôt).</li>
-            <li>Midi : snack / café.</li>
-            <li>Après-midi : <strong>Bøur</strong> (village) + <strong>Gásadalur</strong> (cascade) si météo.</li>
-            <li>Soir : dîner “dernier soir”.</li>
-          </ul>
-
-          <h3>Plan B</h3>
-          <ul>
-            <li>Points de vue faciles accessibles en voiture + cafés.</li>
-            <li>Courtes promenades abritées + shopping souvenirs.</li>
-          </ul>
-
-          <div class="callout warn">
-            Si vous devez rendre la voiture à 10:15 le 19/06, évitez de finir trop loin de l’aéroport la veille au soir.
-          </div>
-        </details>
-
-        <details>
-          <summary>
-            <span class="dot"></span>
-            <div>
-              <div class="daytitle">Jour 8 — Ven 19/06 : Retour</div>
-              <div class="muted small">Drop-off voiture 10:15 • vol 12:20</div>
-            </div>
-          </summary>
-          <div class="hr"></div>
-
-          <ul>
-            <li>Rendre la voiture (photos + carburant conforme).</li>
-            <li>Check-in aéroport + marge (météo).</li>
-            <li>Vol retour.</li>
-          </ul>
-
-          <div class="callout ok">
-            Prévoir une marge : route + station-service + restitution peuvent prendre plus de temps que prévu.
-          </div>
-        </details>
-
-      </div>
-    </div>
-  </section>
-
-  
-  <section id="restaurants" class="card">
-    <h2>Restaurants (par ville, catégorie &amp; budget)</h2>
-    <p class="muted small">
-      Les budgets sont indicatifs : <strong>€</strong> (simple), <strong>€€</strong> (intermédiaire), <strong>€€€</strong> (expérience).
-      Conseillé : réserver au moins 1–2 soirs à Tórshavn.
-    </p>
-
-    <div class="grid cols-3" style="margin-top:12px">
-
-      <div class="card" style="background:rgba(15,23,41,.55)">
-        <h3>Tórshavn</h3>
-
-        <div class="row" style="margin-top:8px">
-          <span class="tag">Gastronomique €€€</span>
-        </div>
-        <ul>
-          <li><strong>KOKS</strong> — tasting menu
-            (<a href="https://koks.fo/" target="_blank" rel="noopener">site</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=KOKS+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
-          </li>
-          <li><strong>ROKS</strong> — seafood &amp; wine
-            (<a href="https://www.roks.fo/" target="_blank" rel="noopener">site</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=ROKS+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
-          </li>
-          <li><strong>Ræst</strong> — cuisine fermentée
-            (<a href="https://raest.fo/raest/" target="_blank" rel="noopener">site</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=R%C3%A6st+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
-          </li>
-          <li><strong>Áarstova</strong> — agneau &amp; seafood
-            (<a href="https://aarstova.fo/aarstova/" target="_blank" rel="noopener">site</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=%C3%81arstova+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
-          </li>
-        </ul>
-
-        <div class="row" style="margin-top:10px">
-          <span class="tag">Poisson / local €€</span>
-        </div>
-        <ul>
-          <li><strong>Barbara Fish House</strong> — seafood
-            (<a href="https://barbara.fo/barbara/" target="_blank" rel="noopener">site</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=Barbara+Fish+House+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
-          </li>
-        </ul>
-
-        <div class="row" style="margin-top:10px">
-          <span class="tag">Sushi / asiatique €€</span>
-        </div>
-        <ul>
-          <li><strong>Etika</strong> — sushi
-            (<a href="https://visitfaroeislands.com/en/whatson/places/place/etika00" target="_blank" rel="noopener">infos</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=Etika+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
-          </li>
-        </ul>
-      </div>
-
-      <div class="card" style="background:rgba(15,23,41,.55)">
-        <h3>Klaksvík</h3>
-
-        <div class="row" style="margin-top:8px">
-          <span class="tag">Café / brunch €</span>
-        </div>
-        <ul>
-          <li><strong>Fríða Kaffihús</strong>
-            (<a href="https://travelguide.fo/listing/frida-kaffihus/" target="_blank" rel="noopener">infos</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=Fr%C3%AD%C3%B0a+Kaffih%C3%BAs+Klaksv%C3%ADk" target="_blank" rel="noopener">carte</a>)
-          </li>
-        </ul>
-
-        <div class="row" style="margin-top:10px">
-          <span class="tag">Steakhouse €€</span>
-        </div>
-        <ul>
-          <li><strong>Angus Steakhouse</strong>
-            (<a href="https://visitfaroeislands.com/en/whatson/places/place/angus-steakhouse0?lang=en" target="_blank" rel="noopener">infos</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=Angus+Steakhouse+Klaksv%C3%ADk" target="_blank" rel="noopener">carte</a>)
-          </li>
-        </ul>
-
-        <div class="row" style="margin-top:10px">
-          <span class="tag">Pizza / casual €</span>
-        </div>
-        <ul>
-          <li><strong>Reydleyk Klaksvík</strong> — pizza (port)
-            (<a href="https://www.google.com/maps/search/?api=1&amp;query=Reydleyk+Klaksv%C3%ADk" target="_blank" rel="noopener">carte</a>)
-          </li>
-        </ul>
-
-        <div class="callout ok small">
-          Bon plan : garder 1 soir “cuisine maison” (repos + météo) et 1 soir resto.
-        </div>
-      </div>
-
-      <div class="card" style="background:rgba(15,23,41,.55)">
-        <h3>Vágar (Sandavágur / Sørvágur / Gásadalur / Bøur)</h3>
-
-        <div class="row" style="margin-top:8px">
-          <span class="tag">Local / café €–€€</span>
-        </div>
-        <ul>
-          <li><strong>Fiskastykkið</strong> (Sandavágur)
-            (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste Visit Vágar</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=Fiskastykki%C3%B0+Sandav%C3%A1gur" target="_blank" rel="noopener">carte</a>)
-          </li>
-          <li><strong>Café Zorva</strong> (Sørvágur)
-            (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9+Zorva+S%C3%B8rv%C3%A1gur" target="_blank" rel="noopener">carte</a>)
-          </li>
-          <li><strong>Gásadalsgarður</strong> (Gásadalur)
-            (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=G%C3%A1sadalsgar%C3%B0ur+G%C3%A1sadalur" target="_blank" rel="noopener">carte</a>)
-          </li>
-          <li><strong>Smiðjan</strong> (Vágar)
-            (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=Smi%C3%B0jan+V%C3%A1gar" target="_blank" rel="noopener">carte</a>)
-          </li>
-          <li><strong>Pollastova</strong> (Sørvágur)
-            (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=Pollastova+S%C3%B8rv%C3%A1gur" target="_blank" rel="noopener">carte</a>)
-          </li>
-        </ul>
-
-        <div class="callout warn small">
-          Sur Vágar/Mykines : horaires variables. Vérifier la veille (et prévoir plan B : courses).
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <section id="randonnees" class="grid cols-2">
-    <div class="card">
-      <h2>Randonnées (choix pragmatique)</h2>
-      <p class="muted small">Objectif : 1 rando “signature” + 2–3 balades faciles. Ne pas surcharger.</p>
-      <ul>
-        <li><strong>Sørvágsvatn / Trælanípa (Vágar)</strong> : rando phare (partir tôt).</li>
-        <li><strong>Gjógv (Eysturoy)</strong> : balade facile + paysages.</li>
-        <li><strong>Balades côtières</strong> : choisir selon vent et visibilité.</li>
-      </ul>
-      <div class="callout ok">
-        Équipement minimum : veste imperméable, pantalon pluie, gants fins, bonnet, bonnes chaussures, couche chaude.
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Règles sécurité (vent / météo)</h2>
-      <ul>
-        <li>Éviter crêtes/falaises si rafales ou brouillard.</li>
-        <li>Garder une marge : demi-tour si la visibilité se dégrade.</li>
-        <li>Informer le groupe du plan (durée, retour, dernier départ acceptable).</li>
-      </ul>
-      <div class="callout danger">
-        Les falaises aux Féroé ne pardonnent pas : pas de “photo au bord”, surtout par vent.
-      </div>
-    </div>
-  </section>
-
-  <section id="pratique" class="grid cols-2">
-    <div class="card">
-      <h2>Infos pratiques — conduite</h2>
-      <ul>
-        <li>Routes étroites : conduite souple, attention aux moutons et aux arrêts photo.</li>
-        <li>Tunnels : possibles péages/consignes. Anticiper les entrées/sorties.</li>
-        <li>Carburant : faire le plein avant les longues boucles et avant le retour voiture.</li>
-      </ul>
-      <div class="callout warn">
-        Conseil : fixez une “heure limite” de départ retour chaque jour pour respecter ≤4h de route.
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Infos pratiques — météo</h2>
-      <ul>
-        <li>Météo changeante : superposer les couches, protéger l’électronique.</li>
-        <li>Plan B quotidien : ville/cafés + balades courtes.</li>
-        <li>Fenêtres météo : profiter vite, sans attendre “le ciel parfait”.</li>
-      </ul>
-      <div class="callout ok">
-        Meilleure stratégie : programme “modulaire” (spots proches) plutôt qu’une boucle trop longue.
-      </div>
-    </div>
-  </section>
-
-  <section id="checklists" class="grid cols-2">
-    <div class="card">
-      <h2>Checklist “matin”</h2>
-      <ul>
-        <li>Regarder le vent + pluie (appli météo) + visibilité.</li>
-        <li>Choisir Plan A ou Plan B.</li>
-        <li>Préparer pique-nique / eau / thermos.</li>
-        <li>Charger : téléphones, powerbank, appareil photo.</li>
-        <li>Vêtements : imper + couche chaude + bonnet/gants.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>Checklist “soir”</h2>
-      <ul>
-        <li>Ravitaillement snacks / petit-déj si besoin.</li>
-        <li>Préparer départ du lendemain (heures, trajets, ferry si prévu).</li>
-        <li>Réserver resto si nécessaire.</li>
-        <li>Sauvegarder photos.</li>
-      </ul>
-    </div>
-  </section>
-
-</main>
-
-<footer class="wrap">
-  <div class="small">
-    <strong>Mode d’emploi :</strong> ce carnet est volontairement “offline-friendly”. Ajoutez vos liens (Maps/restos) au fil de l’eau.
-    <div class="hr"></div>
-    <span class="muted">Version : séjour (logements + voiture déjà réservés).</span>
-  </div>
-</footer>
-
-</body>
-</html>
+ <!doctype html>
+ <html lang="fr">
+ <head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1" />
+   <title>Carnet de voyage — Îles Féroé (12–19 juin 2026)</title>
+   <style>
+     :root{
+-      --bg:#0b1220; --card:#121b2e; --card2:#0f1729; --text:#e8eefc; --muted:#b7c2dd;
+-      --accent:#6ee7ff; --accent2:#a78bfa; --ok:#34d399; --warn:#fbbf24; --danger:#fb7185;
+-      --border:rgba(255,255,255,.10);
++      --bg:#eff6ff; --card:#ffffff; --card2:#f8fbff; --text:#10213f; --muted:#4f6288;
++      --accent:#0ea5e9; --accent2:#8b5cf6; --ok:#10b981; --warn:#f59e0b; --danger:#ef4444;
++      --border:rgba(16,33,63,.14);
+     }
+     *{box-sizing:border-box}
+     body{
+       margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+-      background: radial-gradient(1200px 700px at 20% 0%, rgba(110,231,255,.15), transparent 55%),
+-                  radial-gradient(900px 600px at 80% 10%, rgba(167,139,250,.12), transparent 55%),
+-                  var(--bg);
++      background: radial-gradient(1200px 700px at 20% 0%, rgba(14,165,233,.16), transparent 55%),
++                  radial-gradient(900px 600px at 80% 10%, rgba(139,92,246,.12), transparent 55%),
++                  linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+       color:var(--text);
+       line-height:1.5;
+     }
+     a{color:var(--accent); text-decoration:none}
+     a:hover{text-decoration:underline}
+     header{
+       padding:28px 18px 14px; position:sticky; top:0; backdrop-filter: blur(10px);
+-      background: linear-gradient(to bottom, rgba(11,18,32,.92), rgba(11,18,32,.65));
++      background: linear-gradient(to bottom, rgba(255,255,255,.94), rgba(245,250,255,.85));
+       border-bottom:1px solid var(--border); z-index:5;
+     }
+     .wrap{max-width:1100px; margin:0 auto}
+     .title{display:flex; gap:14px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap}
+     h1{margin:0; font-size:22px}
+     .pill{
+       display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--border);
+       border-radius:999px; background:rgba(255,255,255,.04); color:var(--muted); font-size:13px;
+     }
+-    nav{ margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; }
++    nav{ margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; }
+     nav a{
+-      padding:8px 10px; border:1px solid var(--border); border-radius:10px;
+-      background:rgba(255,255,255,.03); color:var(--text); font-size:13px;
++      padding:8px 12px; border:1px solid var(--border); border-radius:999px;
++      background:linear-gradient(180deg, #ffffff, #eef6ff); color:var(--text); font-size:13px; font-weight:600;
++      box-shadow: 0 2px 10px rgba(14,165,233,.10);
+     }
+-    nav a:hover{background:rgba(255,255,255,.06); text-decoration:none}
++    nav a:hover{background:linear-gradient(180deg, #ffffff, #e2f2ff); text-decoration:none}
+     main{padding:18px}
+     section{margin:18px 0}
+     .grid{display:grid; gap:14px}
+     @media (min-width: 920px){
+       .grid.cols-2{grid-template-columns: 1fr 1fr}
+       .grid.cols-3{grid-template-columns: 1.2fr .9fr .9fr}
+     }
+     .card{
+-      border:1px solid var(--border); border-radius:16px; background:rgba(18,27,46,.75);
+-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
++      border:1px solid var(--border); border-radius:16px; background:var(--card);
++      box-shadow: 0 10px 24px rgba(15, 23, 42, .08);
+       padding:14px 14px;
+     }
+     .card h2,.card h3{margin:0 0 10px}
+     .card h2{font-size:16px}
+     .card h3{font-size:14px; color:var(--muted); font-weight:600}
+     .muted{color:var(--muted)}
+     .kvs{display:grid; grid-template-columns: 160px 1fr; gap:8px 12px; margin:0}
+     .kvs div{padding:6px 0; border-bottom:1px dashed rgba(255,255,255,.10)}
+     .kvs div:nth-last-child(-n+2){border-bottom:none}
+     .tag{
+       display:inline-flex; padding:3px 8px; border-radius:999px;
+       border:1px solid var(--border); background:rgba(255,255,255,.04);
+       font-size:12px; color:var(--muted); margin-right:6px;
+     }
+     .btn{
+       display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:12px;
+       border:1px solid var(--border); background:rgba(255,255,255,.04); color:var(--text);
+       font-size:13px; cursor:pointer;
+     }
+     .btn:hover{background:rgba(255,255,255,.07)}
++    .btn:focus-visible, .check-item input:focus-visible + label, .skip-link:focus-visible{
++      outline:2px solid var(--accent); outline-offset:2px;
++    }
+     .timeline{display:grid; gap:10px}
+-    details{ border:1px solid var(--border); border-radius:14px; background:rgba(15,23,41,.7); padding:10px 12px; }
++    details{ border:1px solid var(--border); border-radius:14px; background:var(--card2); padding:10px 12px; }
+     summary{ cursor:pointer; list-style:none; display:flex; align-items:flex-start; gap:10px; }
+     summary::-webkit-details-marker{display:none}
+     .dot{
+       width:10px; height:10px; border-radius:50%; margin-top:6px;
+       background: linear-gradient(45deg, var(--accent), var(--accent2));
+       box-shadow:0 0 0 4px rgba(110,231,255,.12);
+       flex:0 0 auto;
+     }
+     .daytitle{font-weight:700}
+     .row{display:flex; gap:10px; flex-wrap:wrap}
+     ul{margin:8px 0 0 18px}
+     .small{font-size:12px}
+     .callout{
+       border-left:3px solid var(--accent); padding:10px 12px; background:rgba(110,231,255,.06);
+       border-radius:12px; color:var(--text); margin-top:10px;
+     }
+     .warn{border-left-color: var(--warn); background: rgba(251,191,36,.08)}
+     .ok{border-left-color: var(--ok); background: rgba(52,211,153,.08)}
+     .danger{border-left-color: var(--danger); background: rgba(251,113,133,.08)}
+     footer{padding:28px 18px; color:var(--muted); border-top:1px solid var(--border); margin-top:22px}
+     .hr{height:1px; background:rgba(255,255,255,.10); margin:12px 0}
+     .table{
+       width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:14px;
+-      border:1px solid var(--border); background:rgba(15,23,41,.7);
++      border:1px solid var(--border); background:#fff;
+     }
+     .table th,.table td{padding:10px 10px; font-size:13px; border-bottom:1px solid rgba(255,255,255,.08); vertical-align:top}
+-    .table th{color:var(--muted); text-align:left; background:rgba(255,255,255,.03)}
++    .table th{color:var(--muted); text-align:left; background:#eef6ff}
+     .table tr:last-child td{border-bottom:none}
+-    code{background:rgba(255,255,255,.06); padding:2px 6px; border-radius:8px}
++    code{background:#e8f4ff; padding:2px 6px; border-radius:8px}
++    .skip-link{
++      position:absolute; left:-999px; top:8px; z-index:15; padding:8px 12px;
++      background:var(--accent); color:#041022; border-radius:10px; font-weight:700;
++    }
++    .skip-link:focus-visible{left:12px}
++    .checklist{display:grid; gap:8px; margin-top:10px}
++    .check-item{
++      display:flex; align-items:flex-start; gap:8px; padding:8px 10px;
++      border:1px solid var(--border); border-radius:10px; background:rgba(255,255,255,.02);
++    }
++    .check-item input{margin-top:3px}
++    .check-item.done{opacity:.75}
++    .check-item.done label{text-decoration:line-through; color:var(--muted)}
++    .progress-wrap{display:flex; align-items:center; gap:10px; margin-top:10px}
++    .progress{
++      height:10px; border-radius:999px; background:rgba(255,255,255,.10); flex:1; overflow:hidden;
++      border:1px solid rgba(255,255,255,.12)
++    }
++    .progress > span{display:block; height:100%; width:0%; background:linear-gradient(90deg, var(--accent), var(--ok)); transition:width .3s ease}
++    .toolbar{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
++    #backToTop{position:fixed; right:16px; bottom:16px; opacity:0; pointer-events:none; transition:opacity .2s ease}
++    #backToTop.show{opacity:1; pointer-events:auto}
++    .map-wrap{display:grid; gap:12px}
++    .tab-buttons{display:flex; flex-wrap:wrap; gap:8px}
++    .tab-btn{
++      border:1px solid var(--border); background:#fff; color:var(--text);
++      border-radius:999px; padding:8px 12px; font-size:13px; font-weight:600; cursor:pointer;
++    }
++    .tab-btn.active{background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#fff; border-color:transparent}
++    .map-frame{width:100%; height:360px; border:1px solid var(--border); border-radius:14px}
++
+   </style>
+ </head>
+ 
+ <body>
++<a href="#contenu" class="skip-link">Aller au contenu</a>
+ <header>
+   <div class="wrap">
+     <div class="title">
+       <div>
+         <h1>Carnet de voyage — Îles Féroé (12 → 19 juin 2026)</h1>
+         <div class="row" style="margin-top:8px">
+           <span class="pill">4 voyageurs</span>
+           <span class="pill">Voiture Europcar</span>
+           <span class="pill">Logements Airbnb réservés</span>
+           <span class="pill">Objectif : visites, restos, randos</span>
+         </div>
+       </div>
+-      <button class="btn" onclick="window.print()">Imprimer / PDF</button>
++      <div class="row">
++        <button class="btn" id="toggleTimeline" type="button">Tout déplier les jours</button>
++        <button class="btn" onclick="window.print()">Imprimer / PDF</button>
++      </div>
+     </div>
+ 
+     <nav aria-label="Navigation">
+       <a href="#essentiel">Essentiel</a>
+       <a href="#reservations">Réservations</a>
+       <a href="#planning">Planning</a>
++      <a href="#cartes">Cartes</a>
+       <a href="#jours">Jour par jour</a>
+       <a href="#restaurants">Restaurants</a>
+       <a href="#randonnees">Randonnées</a>
+       <a href="#pratique">Infos pratiques</a>
+       <a href="#checklists">Checklists</a>
+     </nav>
+   </div>
+ </header>
+ 
+-<main class="wrap">
++<main class="wrap" id="contenu">
++
++  <section class="card" aria-label="Préparation du séjour">
++    <h2>Progression de préparation</h2>
++    <p class="muted small">Cochez les points faits : l’avancement est sauvegardé automatiquement sur cet appareil.</p>
++    <div class="progress-wrap" aria-live="polite">
++      <div class="progress" aria-hidden="true"><span id="prepProgress"></span></div>
++      <strong id="prepPercent">0%</strong>
++    </div>
++    <div class="checklist" data-checklist="pretrip">
++      <div class="check-item"><input id="pretrip-1" type="checkbox"><label for="pretrip-1">Passeports/pièces + permis + CB conducteur prêts.</label></div>
++      <div class="check-item"><input id="pretrip-2" type="checkbox"><label for="pretrip-2">Numéros utiles complétés (assurance, Europcar, hôtes).</label></div>
++      <div class="check-item"><input id="pretrip-3" type="checkbox"><label for="pretrip-3">Vêtements pluie/vent et chaussures validés.</label></div>
++      <div class="check-item"><input id="pretrip-4" type="checkbox"><label for="pretrip-4">Apps météo + cartes hors-ligne installées.</label></div>
++      <div class="check-item"><input id="pretrip-5" type="checkbox"><label for="pretrip-5">Plan A/B du premier jour relu en groupe.</label></div>
++      <div class="check-item"><input id="pretrip-6" type="checkbox"><label for="pretrip-6">Snacks + pharmacie + batterie externe préparés.</label></div>
++    </div>
++  </section>
+ 
+   <section id="essentiel" class="grid cols-3">
+     <div class="card">
+       <h2>Essentiel (à garder sous la main)</h2>
+       <div class="kvs">
+         <div class="muted">Vol aller</div>
+         <div>Paris CDG T2B → Vágar (RC425) — <strong>12/06 17:00 → 18:40</strong></div>
+         <div class="muted">Vol retour</div>
+         <div>Vágar → Paris CDG T2B (RC424) — <strong>19/06 12:20 → 16:00</strong></div>
+         <div class="muted">Contrainte route</div>
+         <div><strong>≤ 4h</strong> de conduite / jour (objectif confort)</div>
+         <div class="muted">Rythme conseillé</div>
+         <div>1 “grand spot” + 1 balade + 1 resto / jour</div>
+       </div>
+       <div class="callout ok">
+         Astuce : aux Féroé, le plan B est indispensable. Prévois chaque jour une alternative “météo”.
+       </div>
+     </div>
+ 
+     <div class="card">
+       <h2>Carte & repères</h2>
+       <p class="muted small">Ajoute ici vos liens Google Maps “épingles” si vous en créez (parkings, points de vue, restos).</p>
+       <ul>
+         <li><strong>Tórshavn</strong> : capitale, base pratique Streymoy + Eysturoy</li>
+         <li><strong>Klaksvík</strong> : base Nord (Kalsoy, Viðoy, Kunoy…)</li>
+@@ -293,50 +350,81 @@
+           <td>Balades courtes + cafés</td>
+           <td>Soir : cuisine maison</td>
+         </tr>
+         <tr>
+           <td><strong>Jeu 18/06</strong></td>
+           <td>Vágar (Airbnb)</td>
+           <td>Vágar : Sørvágsvatn / Bøur</td>
+           <td>Centre + points de vue faciles</td>
+           <td>Dernier dîner</td>
+         </tr>
+         <tr>
+           <td><strong>Ven 19/06</strong></td>
+           <td>—</td>
+           <td>Retour voiture + vol</td>
+           <td>—</td>
+           <td>—</td>
+         </tr>
+       </tbody>
+     </table>
+ 
+     <div class="callout warn">
+       Le 18/06 : base sur Vágar (Airbnb) — pratique pour le retour (restitution voiture 19/06 à 10:15 à l’aéroport).
+     </div>
+   </section>
+ 
++  <section id="cartes" class="grid cols-2">
++    <div class="card">
++      <h2>Carte des logements</h2>
++      <p class="muted small">Onglets rapides pour visualiser les trois bases du séjour.</p>
++      <div class="map-wrap">
++        <div class="tab-buttons" data-map-tabs="logements">
++          <button class="tab-btn active" type="button" data-src="https://maps.google.com/maps?q=Torshavn%20Faroe%20Islands&output=embed">Tórshavn</button>
++          <button class="tab-btn" type="button" data-src="https://maps.google.com/maps?q=Klaksvik%20Faroe%20Islands&output=embed">Klaksvík</button>
++          <button class="tab-btn" type="button" data-src="https://maps.google.com/maps?q=Sorvagur%20Faroe%20Islands&output=embed">Vágar / Sørvágur</button>
++        </div>
++        <iframe class="map-frame" title="Carte des logements" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Torshavn%20Faroe%20Islands&output=embed"></iframe>
++      </div>
++    </div>
++
++    <div class="card">
++      <h2>Carte des trajets proposés (jour par jour)</h2>
++      <p class="muted small">Chaque onglet affiche un trajet principal conseillé pour la journée.</p>
++      <div class="map-wrap">
++        <div class="tab-buttons" data-map-tabs="trajets">
++          <button class="tab-btn active" type="button" data-src="https://maps.google.com/maps?q=Torshavn%20to%20Vestmanna%20to%20Saksun&output=embed">J2</button>
++          <button class="tab-btn" type="button" data-src="https://maps.google.com/maps?q=Torshavn%20to%20Gjogv%20to%20Eidi&output=embed">J3</button>
++          <button class="tab-btn" type="button" data-src="https://maps.google.com/maps?q=Torshavn%20to%20Klaksvik&output=embed">J4</button>
++          <button class="tab-btn" type="button" data-src="https://maps.google.com/maps?q=Klaksvik%20to%20Sy%C3%B0radalur%20Kalsoy&output=embed">J5</button>
++          <button class="tab-btn" type="button" data-src="https://maps.google.com/maps?q=Klaksvik%20to%20Vidareidi&output=embed">J6</button>
++          <button class="tab-btn" type="button" data-src="https://maps.google.com/maps?q=Klaksvik%20to%20Sorvagsvatn%20to%20Gasadalur&output=embed">J7</button>
++        </div>
++        <iframe class="map-frame" title="Carte des trajets" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Torshavn%20to%20Vestmanna%20to%20Saksun&output=embed"></iframe>
++      </div>
++    </div>
++  </section>
++
+   <section id="jours">
+     <div class="card">
+       <h2>Jour par jour (détails opérationnels)</h2>
+       <p class="muted small">Chaque jour : une version A (météo correcte) + une version B (météo dégradée). Ajustez selon le vent et les nuages.</p>
+ 
+       <div class="timeline">
+ 
+         <details open>
+           <summary>
+             <span class="dot"></span>
+             <div>
+               <div class="daytitle">Jour 1 — Ven 12/06 : Arrivée à Vágar → Tórshavn</div>
+               <div class="muted small">Pick-up voiture 19:15 • route vers Tórshavn • installation</div>
+             </div>
+           </summary>
+           <div class="hr"></div>
+           <div class="row">
+             <span class="tag">Objectif</span><span class="muted">Atterrir, récupérer la voiture, s’installer sans stress.</span>
+           </div>
+ 
+           <h3>Plan A</h3>
+           <ul>
+             <li>Récupération voiture (photos + vérifs).</li>
+             <li>Trajet vers Tórshavn, stop rapide si ciel dégagé : point de vue proche (sans détour).</li>
+             <li>Installation + promenade port / centre (Tinganes si accessible).</li>
+@@ -532,134 +620,134 @@
+           <ul>
+             <li>Rendre la voiture (photos + carburant conforme).</li>
+             <li>Check-in aéroport + marge (météo).</li>
+             <li>Vol retour.</li>
+           </ul>
+ 
+           <div class="callout ok">
+             Prévoir une marge : route + station-service + restitution peuvent prendre plus de temps que prévu.
+           </div>
+         </details>
+ 
+       </div>
+     </div>
+   </section>
+ 
+   
+   <section id="restaurants" class="card">
+     <h2>Restaurants (par ville, catégorie &amp; budget)</h2>
+     <p class="muted small">
+       Les budgets sont indicatifs : <strong>€</strong> (simple), <strong>€€</strong> (intermédiaire), <strong>€€€</strong> (expérience).
+       Conseillé : réserver au moins 1–2 soirs à Tórshavn.
+     </p>
+ 
+     <div class="grid cols-3" style="margin-top:12px">
+ 
+-      <div class="card" style="background:rgba(15,23,41,.55)">
++      <div class="card" style="background:#f7fbff">
+         <h3>Tórshavn</h3>
+ 
+         <div class="row" style="margin-top:8px">
+           <span class="tag">Gastronomique €€€</span>
+         </div>
+         <ul>
+           <li><strong>KOKS</strong> — tasting menu
+             (<a href="https://koks.fo/" target="_blank" rel="noopener">site</a> ·
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=KOKS+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
+           </li>
+           <li><strong>ROKS</strong> — seafood &amp; wine
+             (<a href="https://www.roks.fo/" target="_blank" rel="noopener">site</a> ·
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=ROKS+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
+           </li>
+           <li><strong>Ræst</strong> — cuisine fermentée
+             (<a href="https://raest.fo/raest/" target="_blank" rel="noopener">site</a> ·
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=R%C3%A6st+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
+           </li>
+           <li><strong>Áarstova</strong> — agneau &amp; seafood
+             (<a href="https://aarstova.fo/aarstova/" target="_blank" rel="noopener">site</a> ·
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=%C3%81arstova+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
+           </li>
+         </ul>
+ 
+         <div class="row" style="margin-top:10px">
+           <span class="tag">Poisson / local €€</span>
+         </div>
+         <ul>
+           <li><strong>Barbara Fish House</strong> — seafood
+             (<a href="https://barbara.fo/barbara/" target="_blank" rel="noopener">site</a> ·
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Barbara+Fish+House+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
+           </li>
+         </ul>
+ 
+         <div class="row" style="margin-top:10px">
+           <span class="tag">Sushi / asiatique €€</span>
+         </div>
+         <ul>
+           <li><strong>Etika</strong> — sushi
+             (<a href="https://visitfaroeislands.com/en/whatson/places/place/etika00" target="_blank" rel="noopener">infos</a> ·
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Etika+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
+           </li>
+         </ul>
+       </div>
+ 
+-      <div class="card" style="background:rgba(15,23,41,.55)">
++      <div class="card" style="background:#f7fbff">
+         <h3>Klaksvík</h3>
+ 
+         <div class="row" style="margin-top:8px">
+           <span class="tag">Café / brunch €</span>
+         </div>
+         <ul>
+           <li><strong>Fríða Kaffihús</strong>
+             (<a href="https://travelguide.fo/listing/frida-kaffihus/" target="_blank" rel="noopener">infos</a> ·
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Fr%C3%AD%C3%B0a+Kaffih%C3%BAs+Klaksv%C3%ADk" target="_blank" rel="noopener">carte</a>)
+           </li>
+         </ul>
+ 
+         <div class="row" style="margin-top:10px">
+           <span class="tag">Steakhouse €€</span>
+         </div>
+         <ul>
+           <li><strong>Angus Steakhouse</strong>
+             (<a href="https://visitfaroeislands.com/en/whatson/places/place/angus-steakhouse0?lang=en" target="_blank" rel="noopener">infos</a> ·
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Angus+Steakhouse+Klaksv%C3%ADk" target="_blank" rel="noopener">carte</a>)
+           </li>
+         </ul>
+ 
+         <div class="row" style="margin-top:10px">
+           <span class="tag">Pizza / casual €</span>
+         </div>
+         <ul>
+           <li><strong>Reydleyk Klaksvík</strong> — pizza (port)
+             (<a href="https://www.google.com/maps/search/?api=1&amp;query=Reydleyk+Klaksv%C3%ADk" target="_blank" rel="noopener">carte</a>)
+           </li>
+         </ul>
+ 
+         <div class="callout ok small">
+           Bon plan : garder 1 soir “cuisine maison” (repos + météo) et 1 soir resto.
+         </div>
+       </div>
+ 
+-      <div class="card" style="background:rgba(15,23,41,.55)">
++      <div class="card" style="background:#f7fbff">
+         <h3>Vágar (Sandavágur / Sørvágur / Gásadalur / Bøur)</h3>
+ 
+         <div class="row" style="margin-top:8px">
+           <span class="tag">Local / café €–€€</span>
+         </div>
+         <ul>
+           <li><strong>Fiskastykkið</strong> (Sandavágur)
+             (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste Visit Vágar</a> ·
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Fiskastykki%C3%B0+Sandav%C3%A1gur" target="_blank" rel="noopener">carte</a>)
+           </li>
+           <li><strong>Café Zorva</strong> (Sørvágur)
+             (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste</a> ·
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9+Zorva+S%C3%B8rv%C3%A1gur" target="_blank" rel="noopener">carte</a>)
+           </li>
+           <li><strong>Gásadalsgarður</strong> (Gásadalur)
+             (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste</a> ·
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=G%C3%A1sadalsgar%C3%B0ur+G%C3%A1sadalur" target="_blank" rel="noopener">carte</a>)
+           </li>
+           <li><strong>Smiðjan</strong> (Vágar)
+             (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste</a> ·
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Smi%C3%B0jan+V%C3%A1gar" target="_blank" rel="noopener">carte</a>)
+           </li>
+           <li><strong>Pollastova</strong> (Sørvágur)
+             (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste</a> ·
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Pollastova+S%C3%B8rv%C3%A1gur" target="_blank" rel="noopener">carte</a>)
+@@ -709,57 +797,121 @@
+         <li>Routes étroites : conduite souple, attention aux moutons et aux arrêts photo.</li>
+         <li>Tunnels : possibles péages/consignes. Anticiper les entrées/sorties.</li>
+         <li>Carburant : faire le plein avant les longues boucles et avant le retour voiture.</li>
+       </ul>
+       <div class="callout warn">
+         Conseil : fixez une “heure limite” de départ retour chaque jour pour respecter ≤4h de route.
+       </div>
+     </div>
+ 
+     <div class="card">
+       <h2>Infos pratiques — météo</h2>
+       <ul>
+         <li>Météo changeante : superposer les couches, protéger l’électronique.</li>
+         <li>Plan B quotidien : ville/cafés + balades courtes.</li>
+         <li>Fenêtres météo : profiter vite, sans attendre “le ciel parfait”.</li>
+       </ul>
+       <div class="callout ok">
+         Meilleure stratégie : programme “modulaire” (spots proches) plutôt qu’une boucle trop longue.
+       </div>
+     </div>
+   </section>
+ 
+   <section id="checklists" class="grid cols-2">
+     <div class="card">
+       <h2>Checklist “matin”</h2>
+-      <ul>
+-        <li>Regarder le vent + pluie (appli météo) + visibilité.</li>
+-        <li>Choisir Plan A ou Plan B.</li>
+-        <li>Préparer pique-nique / eau / thermos.</li>
+-        <li>Charger : téléphones, powerbank, appareil photo.</li>
+-        <li>Vêtements : imper + couche chaude + bonnet/gants.</li>
+-      </ul>
++      <div class="checklist" data-checklist="matin">
++        <div class="check-item"><input id="matin-1" type="checkbox"><label for="matin-1">Regarder le vent + pluie (appli météo) + visibilité.</label></div>
++        <div class="check-item"><input id="matin-2" type="checkbox"><label for="matin-2">Choisir Plan A ou Plan B.</label></div>
++        <div class="check-item"><input id="matin-3" type="checkbox"><label for="matin-3">Préparer pique-nique / eau / thermos.</label></div>
++        <div class="check-item"><input id="matin-4" type="checkbox"><label for="matin-4">Charger : téléphones, powerbank, appareil photo.</label></div>
++        <div class="check-item"><input id="matin-5" type="checkbox"><label for="matin-5">Vêtements : imper + couche chaude + bonnet/gants.</label></div>
++      </div>
+     </div>
+ 
+     <div class="card">
+       <h2>Checklist “soir”</h2>
+-      <ul>
+-        <li>Ravitaillement snacks / petit-déj si besoin.</li>
+-        <li>Préparer départ du lendemain (heures, trajets, ferry si prévu).</li>
+-        <li>Réserver resto si nécessaire.</li>
+-        <li>Sauvegarder photos.</li>
+-      </ul>
++      <div class="checklist" data-checklist="soir">
++        <div class="check-item"><input id="soir-1" type="checkbox"><label for="soir-1">Ravitaillement snacks / petit-déj si besoin.</label></div>
++        <div class="check-item"><input id="soir-2" type="checkbox"><label for="soir-2">Préparer départ du lendemain (heures, trajets, ferry si prévu).</label></div>
++        <div class="check-item"><input id="soir-3" type="checkbox"><label for="soir-3">Réserver resto si nécessaire.</label></div>
++        <div class="check-item"><input id="soir-4" type="checkbox"><label for="soir-4">Sauvegarder photos.</label></div>
++      </div>
+     </div>
+   </section>
+ 
+ </main>
+ 
+ <footer class="wrap">
+   <div class="small">
+     <strong>Mode d’emploi :</strong> ce carnet est volontairement “offline-friendly”. Ajoutez vos liens (Maps/restos) au fil de l’eau.
+     <div class="hr"></div>
+     <span class="muted">Version : séjour (logements + voiture déjà réservés).</span>
+   </div>
+ </footer>
+ 
++<button class="btn" id="backToTop" type="button" aria-label="Revenir en haut">↑ Haut</button>
++
++<script>
++  const allChecks = document.querySelectorAll('.checklist input[type="checkbox"]');
++  const pretripChecks = document.querySelectorAll('[data-checklist="pretrip"] input[type="checkbox"]');
++  const prepProgress = document.getElementById('prepProgress');
++  const prepPercent = document.getElementById('prepPercent');
++
++  function updateProgress(){
++    const done = [...pretripChecks].filter((item) => item.checked).length;
++    const total = pretripChecks.length || 1;
++    const percent = Math.round((done / total) * 100);
++    prepProgress.style.width = `${percent}%`;
++    prepPercent.textContent = `${percent}%`;
++  }
++
++  function syncCheckStyle(input){
++    const box = input.closest('.check-item');
++    if (!box) return;
++    box.classList.toggle('done', input.checked);
++  }
++
++  allChecks.forEach((input) => {
++    const saved = localStorage.getItem(input.id);
++    if (saved === 'true') input.checked = true;
++    syncCheckStyle(input);
++    input.addEventListener('change', () => {
++      localStorage.setItem(input.id, String(input.checked));
++      syncCheckStyle(input);
++      updateProgress();
++    });
++  });
++  updateProgress();
++
++  const detailsList = [...document.querySelectorAll('#jours details')];
++  const toggleTimeline = document.getElementById('toggleTimeline');
++  let openedAll = false;
++  toggleTimeline.addEventListener('click', () => {
++    openedAll = !openedAll;
++    detailsList.forEach((item) => { item.open = openedAll; });
++    toggleTimeline.textContent = openedAll ? 'Tout replier les jours' : 'Tout déplier les jours';
++  });
++
++  const backToTop = document.getElementById('backToTop');
++  window.addEventListener('scroll', () => {
++    backToTop.classList.toggle('show', window.scrollY > 420);
++  });
++  backToTop.addEventListener('click', () => {
++    window.scrollTo({ top: 0, behavior: 'smooth' });
++  });
++
++  document.querySelectorAll('[data-map-tabs]').forEach((group) => {
++    const frame = group.parentElement.querySelector('iframe');
++    group.querySelectorAll('.tab-btn').forEach((btn) => {
++      btn.addEventListener('click', () => {
++        group.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
++        btn.classList.add('active');
++        frame.src = btn.dataset.src;
++      });
++    });
++  });
++
++</script>
++
+ </body>
+ </html>
