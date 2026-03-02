@@ -6,16 +6,16 @@
   <title>Carnet de voyage — Îles Féroé (12–19 juin 2026)</title>
   <style>
     :root{
-      --bg:#0b1220; --card:#121b2e; --card2:#0f1729; --text:#e8eefc; --muted:#b7c2dd;
-      --accent:#6ee7ff; --accent2:#a78bfa; --ok:#34d399; --warn:#fbbf24; --danger:#fb7185;
-      --border:rgba(255,255,255,.10);
+      --bg:#eff6ff; --card:#ffffff; --card2:#f8fbff; --text:#10213f; --muted:#4f6288;
+      --accent:#0ea5e9; --accent2:#8b5cf6; --ok:#10b981; --warn:#f59e0b; --danger:#ef4444;
+      --border:rgba(16,33,63,.14);
     }
     *{box-sizing:border-box}
     body{
       margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 700px at 20% 0%, rgba(110,231,255,.15), transparent 55%),
-                  radial-gradient(900px 600px at 80% 10%, rgba(167,139,250,.12), transparent 55%),
-                  var(--bg);
+      background: radial-gradient(1200px 700px at 20% 0%, rgba(14,165,233,.16), transparent 55%),
+                  radial-gradient(900px 600px at 80% 10%, rgba(139,92,246,.12), transparent 55%),
+                  linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
       color:var(--text);
       line-height:1.5;
     }
@@ -23,7 +23,7 @@
     a:hover{text-decoration:underline}
     header{
       padding:28px 18px 14px; position:sticky; top:0; backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(11,18,32,.92), rgba(11,18,32,.65));
+      background: linear-gradient(to bottom, rgba(255,255,255,.94), rgba(245,250,255,.85));
       border-bottom:1px solid var(--border); z-index:5;
     }
     .wrap{max-width:1100px; margin:0 auto}
@@ -33,12 +33,13 @@
       display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--border);
       border-radius:999px; background:rgba(255,255,255,.04); color:var(--muted); font-size:13px;
     }
-    nav{ margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; }
+    nav{ margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; }
     nav a{
-      padding:8px 10px; border:1px solid var(--border); border-radius:10px;
-      background:rgba(255,255,255,.03); color:var(--text); font-size:13px;
+      padding:8px 12px; border:1px solid var(--border); border-radius:999px;
+      background:linear-gradient(180deg, #ffffff, #eef6ff); color:var(--text); font-size:13px; font-weight:600;
+      box-shadow: 0 2px 10px rgba(14,165,233,.10);
     }
-    nav a:hover{background:rgba(255,255,255,.06); text-decoration:none}
+    nav a:hover{background:linear-gradient(180deg, #ffffff, #e2f2ff); text-decoration:none}
     main{padding:18px}
     section{margin:18px 0}
     .grid{display:grid; gap:14px}
@@ -47,8 +48,8 @@
       .grid.cols-3{grid-template-columns: 1.2fr .9fr .9fr}
     }
     .card{
-      border:1px solid var(--border); border-radius:16px; background:rgba(18,27,46,.75);
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      border:1px solid var(--border); border-radius:16px; background:var(--card);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, .08);
       padding:14px 14px;
     }
     .card h2,.card h3{margin:0 0 10px}
@@ -69,8 +70,11 @@
       font-size:13px; cursor:pointer;
     }
     .btn:hover{background:rgba(255,255,255,.07)}
+    .btn:focus-visible, .check-item input:focus-visible + label, .skip-link:focus-visible{
+      outline:2px solid var(--accent); outline-offset:2px;
+    }
     .timeline{display:grid; gap:10px}
-    details{ border:1px solid var(--border); border-radius:14px; background:rgba(15,23,41,.7); padding:10px 12px; }
+    details{ border:1px solid var(--border); border-radius:14px; background:var(--card2); padding:10px 12px; }
     summary{ cursor:pointer; list-style:none; display:flex; align-items:flex-start; gap:10px; }
     summary::-webkit-details-marker{display:none}
     .dot{
@@ -94,16 +98,48 @@
     .hr{height:1px; background:rgba(255,255,255,.10); margin:12px 0}
     .table{
       width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:14px;
-      border:1px solid var(--border); background:rgba(15,23,41,.7);
+      border:1px solid var(--border); background:#fff;
     }
     .table th,.table td{padding:10px 10px; font-size:13px; border-bottom:1px solid rgba(255,255,255,.08); vertical-align:top}
-    .table th{color:var(--muted); text-align:left; background:rgba(255,255,255,.03)}
+    .table th{color:var(--muted); text-align:left; background:#eef6ff}
     .table tr:last-child td{border-bottom:none}
-    code{background:rgba(255,255,255,.06); padding:2px 6px; border-radius:8px}
+    code{background:#e8f4ff; padding:2px 6px; border-radius:8px}
+    .skip-link{
+      position:absolute; left:-999px; top:8px; z-index:15; padding:8px 12px;
+      background:var(--accent); color:#041022; border-radius:10px; font-weight:700;
+    }
+    .skip-link:focus-visible{left:12px}
+    .checklist{display:grid; gap:8px; margin-top:10px}
+    .check-item{
+      display:flex; align-items:flex-start; gap:8px; padding:8px 10px;
+      border:1px solid var(--border); border-radius:10px; background:rgba(255,255,255,.02);
+    }
+    .check-item input{margin-top:3px}
+    .check-item.done{opacity:.75}
+    .check-item.done label{text-decoration:line-through; color:var(--muted)}
+    .progress-wrap{display:flex; align-items:center; gap:10px; margin-top:10px}
+    .progress{
+      height:10px; border-radius:999px; background:rgba(255,255,255,.10); flex:1; overflow:hidden;
+      border:1px solid rgba(255,255,255,.12)
+    }
+    .progress > span{display:block; height:100%; width:0%; background:linear-gradient(90deg, var(--accent), var(--ok)); transition:width .3s ease}
+    .toolbar{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    #backToTop{position:fixed; right:16px; bottom:16px; opacity:0; pointer-events:none; transition:opacity .2s ease}
+    #backToTop.show{opacity:1; pointer-events:auto}
+    .map-wrap{display:grid; gap:12px}
+    .tab-buttons{display:flex; flex-wrap:wrap; gap:8px}
+    .tab-btn{
+      border:1px solid var(--border); background:#fff; color:var(--text);
+      border-radius:999px; padding:8px 12px; font-size:13px; font-weight:600; cursor:pointer;
+    }
+    .tab-btn.active{background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#fff; border-color:transparent}
+    .map-frame{width:100%; height:360px; border:1px solid var(--border); border-radius:14px}
+
   </style>
 </head>
 
 <body>
+<a href="#contenu" class="skip-link">Aller au contenu</a>
 <header>
   <div class="wrap">
     <div class="title">
@@ -116,13 +152,17 @@
           <span class="pill">Objectif : visites, restos, randos</span>
         </div>
       </div>
-      <button class="btn" onclick="window.print()">Imprimer / PDF</button>
+      <div class="row">
+        <button class="btn" id="toggleTimeline" type="button">Tout déplier les jours</button>
+        <button class="btn" onclick="window.print()">Imprimer / PDF</button>
+      </div>
     </div>
 
     <nav aria-label="Navigation">
       <a href="#essentiel">Essentiel</a>
       <a href="#reservations">Réservations</a>
       <a href="#planning">Planning</a>
+      <a href="#cartes">Cartes</a>
       <a href="#jours">Jour par jour</a>
       <a href="#restaurants">Restaurants</a>
       <a href="#randonnees">Randonnées</a>
@@ -132,7 +172,24 @@
   </div>
 </header>
 
-<main class="wrap">
+<main class="wrap" id="contenu">
+
+  <section class="card" aria-label="Préparation du séjour">
+    <h2>Progression de préparation</h2>
+    <p class="muted small">Cochez les points faits : l’avancement est sauvegardé automatiquement sur cet appareil.</p>
+    <div class="progress-wrap" aria-live="polite">
+      <div class="progress" aria-hidden="true"><span id="prepProgress"></span></div>
+      <strong id="prepPercent">0%</strong>
+    </div>
+    <div class="checklist" data-checklist="pretrip">
+      <div class="check-item"><input id="pretrip-1" type="checkbox"><label for="pretrip-1">Passeports/pièces + permis + CB conducteur prêts.</label></div>
+      <div class="check-item"><input id="pretrip-2" type="checkbox"><label for="pretrip-2">Numéros utiles complétés (assurance, Europcar, hôtes).</label></div>
+      <div class="check-item"><input id="pretrip-3" type="checkbox"><label for="pretrip-3">Vêtements pluie/vent et chaussures validés.</label></div>
+      <div class="check-item"><input id="pretrip-4" type="checkbox"><label for="pretrip-4">Apps météo + cartes hors-ligne installées.</label></div>
+      <div class="check-item"><input id="pretrip-5" type="checkbox"><label for="pretrip-5">Plan A/B du premier jour relu en groupe.</label></div>
+      <div class="check-item"><input id="pretrip-6" type="checkbox"><label for="pretrip-6">Snacks + pharmacie + batterie externe préparés.</label></div>
+    </div>
+  </section>
 
   <section id="essentiel" class="grid cols-3">
     <div class="card">
@@ -312,6 +369,37 @@
 
     <div class="callout warn">
       Le 18/06 : base sur Vágar (Airbnb) — pratique pour le retour (restitution voiture 19/06 à 10:15 à l’aéroport).
+    </div>
+  </section>
+
+  <section id="cartes" class="grid cols-2">
+    <div class="card">
+      <h2>Carte des logements</h2>
+      <p class="muted small">Onglets rapides pour visualiser les trois bases du séjour.</p>
+      <div class="map-wrap">
+        <div class="tab-buttons" data-map-tabs="logements">
+          <button class="tab-btn active" type="button" data-src="https://maps.google.com/maps?q=Torshavn%20Faroe%20Islands&output=embed">Tórshavn</button>
+          <button class="tab-btn" type="button" data-src="https://maps.google.com/maps?q=Klaksvik%20Faroe%20Islands&output=embed">Klaksvík</button>
+          <button class="tab-btn" type="button" data-src="https://maps.google.com/maps?q=Sorvagur%20Faroe%20Islands&output=embed">Vágar / Sørvágur</button>
+        </div>
+        <iframe class="map-frame" title="Carte des logements" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Torshavn%20Faroe%20Islands&output=embed"></iframe>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Carte des trajets proposés (jour par jour)</h2>
+      <p class="muted small">Chaque onglet affiche un trajet principal conseillé pour la journée.</p>
+      <div class="map-wrap">
+        <div class="tab-buttons" data-map-tabs="trajets">
+          <button class="tab-btn active" type="button" data-src="https://maps.google.com/maps?q=Torshavn%20to%20Vestmanna%20to%20Saksun&output=embed">J2</button>
+          <button class="tab-btn" type="button" data-src="https://maps.google.com/maps?q=Torshavn%20to%20Gjogv%20to%20Eidi&output=embed">J3</button>
+          <button class="tab-btn" type="button" data-src="https://maps.google.com/maps?q=Torshavn%20to%20Klaksvik&output=embed">J4</button>
+          <button class="tab-btn" type="button" data-src="https://maps.google.com/maps?q=Klaksvik%20to%20Sy%C3%B0radalur%20Kalsoy&output=embed">J5</button>
+          <button class="tab-btn" type="button" data-src="https://maps.google.com/maps?q=Klaksvik%20to%20Vidareidi&output=embed">J6</button>
+          <button class="tab-btn" type="button" data-src="https://maps.google.com/maps?q=Klaksvik%20to%20Sorvagsvatn%20to%20Gasadalur&output=embed">J7</button>
+        </div>
+        <iframe class="map-frame" title="Carte des trajets" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Torshavn%20to%20Vestmanna%20to%20Saksun&output=embed"></iframe>
+      </div>
     </div>
   </section>
 
@@ -554,7 +642,7 @@
 
     <div class="grid cols-3" style="margin-top:12px">
 
-      <div class="card" style="background:rgba(15,23,41,.55)">
+      <div class="card" style="background:#f7fbff">
         <h3>Tórshavn</h3>
 
         <div class="row" style="margin-top:8px">
@@ -600,7 +688,7 @@
         </ul>
       </div>
 
-      <div class="card" style="background:rgba(15,23,41,.55)">
+      <div class="card" style="background:#f7fbff">
         <h3>Klaksvík</h3>
 
         <div class="row" style="margin-top:8px">
@@ -637,7 +725,7 @@
         </div>
       </div>
 
-      <div class="card" style="background:rgba(15,23,41,.55)">
+      <div class="card" style="background:#f7fbff">
         <h3>Vágar (Sandavágur / Sørvágur / Gásadalur / Bøur)</h3>
 
         <div class="row" style="margin-top:8px">
@@ -731,23 +819,23 @@
   <section id="checklists" class="grid cols-2">
     <div class="card">
       <h2>Checklist “matin”</h2>
-      <ul>
-        <li>Regarder le vent + pluie (appli météo) + visibilité.</li>
-        <li>Choisir Plan A ou Plan B.</li>
-        <li>Préparer pique-nique / eau / thermos.</li>
-        <li>Charger : téléphones, powerbank, appareil photo.</li>
-        <li>Vêtements : imper + couche chaude + bonnet/gants.</li>
-      </ul>
+      <div class="checklist" data-checklist="matin">
+        <div class="check-item"><input id="matin-1" type="checkbox"><label for="matin-1">Regarder le vent + pluie (appli météo) + visibilité.</label></div>
+        <div class="check-item"><input id="matin-2" type="checkbox"><label for="matin-2">Choisir Plan A ou Plan B.</label></div>
+        <div class="check-item"><input id="matin-3" type="checkbox"><label for="matin-3">Préparer pique-nique / eau / thermos.</label></div>
+        <div class="check-item"><input id="matin-4" type="checkbox"><label for="matin-4">Charger : téléphones, powerbank, appareil photo.</label></div>
+        <div class="check-item"><input id="matin-5" type="checkbox"><label for="matin-5">Vêtements : imper + couche chaude + bonnet/gants.</label></div>
+      </div>
     </div>
 
     <div class="card">
       <h2>Checklist “soir”</h2>
-      <ul>
-        <li>Ravitaillement snacks / petit-déj si besoin.</li>
-        <li>Préparer départ du lendemain (heures, trajets, ferry si prévu).</li>
-        <li>Réserver resto si nécessaire.</li>
-        <li>Sauvegarder photos.</li>
-      </ul>
+      <div class="checklist" data-checklist="soir">
+        <div class="check-item"><input id="soir-1" type="checkbox"><label for="soir-1">Ravitaillement snacks / petit-déj si besoin.</label></div>
+        <div class="check-item"><input id="soir-2" type="checkbox"><label for="soir-2">Préparer départ du lendemain (heures, trajets, ferry si prévu).</label></div>
+        <div class="check-item"><input id="soir-3" type="checkbox"><label for="soir-3">Réserver resto si nécessaire.</label></div>
+        <div class="check-item"><input id="soir-4" type="checkbox"><label for="soir-4">Sauvegarder photos.</label></div>
+      </div>
     </div>
   </section>
 
@@ -760,6 +848,70 @@
     <span class="muted">Version : séjour (logements + voiture déjà réservés).</span>
   </div>
 </footer>
+
+<button class="btn" id="backToTop" type="button" aria-label="Revenir en haut">↑ Haut</button>
+
+<script>
+  const allChecks = document.querySelectorAll('.checklist input[type="checkbox"]');
+  const pretripChecks = document.querySelectorAll('[data-checklist="pretrip"] input[type="checkbox"]');
+  const prepProgress = document.getElementById('prepProgress');
+  const prepPercent = document.getElementById('prepPercent');
+
+  function updateProgress(){
+    const done = [...pretripChecks].filter((item) => item.checked).length;
+    const total = pretripChecks.length || 1;
+    const percent = Math.round((done / total) * 100);
+    prepProgress.style.width = `${percent}%`;
+    prepPercent.textContent = `${percent}%`;
+  }
+
+  function syncCheckStyle(input){
+    const box = input.closest('.check-item');
+    if (!box) return;
+    box.classList.toggle('done', input.checked);
+  }
+
+  allChecks.forEach((input) => {
+    const saved = localStorage.getItem(input.id);
+    if (saved === 'true') input.checked = true;
+    syncCheckStyle(input);
+    input.addEventListener('change', () => {
+      localStorage.setItem(input.id, String(input.checked));
+      syncCheckStyle(input);
+      updateProgress();
+    });
+  });
+  updateProgress();
+
+  const detailsList = [...document.querySelectorAll('#jours details')];
+  const toggleTimeline = document.getElementById('toggleTimeline');
+  let openedAll = false;
+  toggleTimeline.addEventListener('click', () => {
+    openedAll = !openedAll;
+    detailsList.forEach((item) => { item.open = openedAll; });
+    toggleTimeline.textContent = openedAll ? 'Tout replier les jours' : 'Tout déplier les jours';
+  });
+
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('show', window.scrollY > 420);
+  });
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  document.querySelectorAll('[data-map-tabs]').forEach((group) => {
+    const frame = group.parentElement.querySelector('iframe');
+    group.querySelectorAll('.tab-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        group.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        frame.src = btn.dataset.src;
+      });
+    });
+  });
+
+</script>
 
 </body>
 </html>
