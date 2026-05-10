@@ -43,8 +43,17 @@
       box-shadow: 0 2px 10px rgba(14,165,233,.10);
     }
     nav a:hover{background:linear-gradient(180deg, #ffffff, #e2f2ff); text-decoration:none}
+    nav a.active{
+      background:linear-gradient(90deg, var(--accent), var(--accent2));
+      color:#fff; border-color:transparent;
+      box-shadow:0 10px 22px rgba(14,165,233,.24);
+    }
     main{padding:18px}
     section{margin:18px 0}
+    .app-page{display:none}
+    .app-page.active{display:block; animation:pageIn .18s ease-out}
+    .app-page.grid.active{display:grid}
+    @keyframes pageIn{from{opacity:.3; transform:translateY(6px)} to{opacity:1; transform:translateY(0)}}
     .grid{display:grid; gap:14px}
     @media (min-width: 920px){
       .grid.cols-2{grid-template-columns: 1fr 1fr}
@@ -66,6 +75,10 @@
       display:inline-flex; padding:3px 8px; border-radius:999px;
       border:1px solid var(--border); background:#eef6ff;
       font-size:12px; color:var(--text); margin-right:6px;
+    }
+    .version-badge{
+      background:linear-gradient(90deg, #0ea5e9, #8b5cf6);
+      color:#fff; border-color:transparent; font-weight:800;
     }
     .btn{
       display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:12px;
@@ -137,6 +150,20 @@
     }
     .tab-btn.active{background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#fff; border-color:transparent}
     .map-frame{width:100%; height:360px; border:1px solid var(--border); border-radius:14px}
+    .stage-grid{display:grid; gap:14px}
+    @media (min-width: 760px){.stage-grid{grid-template-columns:1fr 1fr}}
+    .stage-card{
+      border:1px solid var(--border); border-radius:14px; background:#f7fbff;
+      padding:14px; box-shadow:0 8px 18px rgba(15,23,42,.06);
+    }
+    .stage-card h3{margin:0 0 8px; color:var(--text)}
+    .stage-meta{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px}
+    .choice-list{display:grid; gap:8px; margin:10px 0 0; padding:0; list-style:none}
+    .choice-list li{
+      display:grid; gap:2px; padding:9px 10px; border:1px solid var(--border);
+      border-radius:10px; background:#fff;
+    }
+    .choice-list span{color:var(--muted); font-size:13px}
 
     @media print{
       body{background:#fff !important; color:#111 !important;}
@@ -148,6 +175,8 @@
       a{color:#111 !important; text-decoration:none !important;}
       .progress-wrap{display:none !important;}
       main{padding:0;}
+      .app-page{display:block !important; animation:none !important;}
+      .app-page.grid{display:grid !important;}
       section{break-inside:avoid; page-break-inside:avoid;}
       details{display:block;}
       details > *{display:block;}
@@ -196,7 +225,7 @@
 
 <main class="wrap" id="contenu">
 
-  <section class="card" aria-label="Préparation du séjour">
+  <section id="preparation" class="card app-page active" aria-label="Préparation du séjour">
     <h2>Progression de préparation</h2>
     <p class="muted small">Cochez les points faits : l’avancement est sauvegardé automatiquement sur cet appareil.</p>
     <div class="progress-wrap" aria-live="polite">
@@ -394,7 +423,7 @@
     </div>
   </section>
 
-  <section id="cartes" class="grid cols-2">
+  <section id="cartes" class="grid cols-2 app-page">
     <div class="card">
       <h2>Carte des logements</h2>
       <p class="muted small">Onglets rapides pour visualiser les trois bases du séjour.</p>
@@ -425,7 +454,7 @@
     </div>
   </section>
 
-  <section id="jours">
+  <section id="jours" class="app-page">
     <div class="card">
       <h2>Jour par jour (détails opérationnels)</h2>
       <p class="muted small">Chaque jour : une version A (météo correcte) + une version B (météo dégradée). Ajustez selon le vent et les nuages.</p>
@@ -654,144 +683,71 @@
     </div>
   </section>
 
-  
-  <section id="restaurants" class="card">
-    <h2>Restaurants (par ville, catégorie &amp; budget)</h2>
-    <p class="muted small">
-      Les budgets sont indicatifs : <strong>€</strong> (simple), <strong>€€</strong> (intermédiaire), <strong>€€€</strong> (expérience).
-      Conseillé : réserver au moins 1–2 soirs à Tórshavn.
-    </p>
+  <section id="visites" class="card app-page">
+    <h2>Visites à choisir par étape</h2>
+    <p class="muted small">La liste est organisée comme une vraie fiche de décision : lieux forts, intérêt, et plan B météo.</p>
 
-    <div class="grid cols-3" style="margin-top:12px">
-
-      <div class="card" style="background:#f7fbff">
-        <h3>Tórshavn</h3>
-
-        <div class="row" style="margin-top:8px">
-          <span class="tag">Gastronomique €€€</span>
-        </div>
-        <ul>
-          <li><strong>KOKS</strong> — tasting menu
-            (<a href="https://koks.fo/" target="_blank" rel="noopener">site</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=KOKS+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
-          </li>
-          <li><strong>ROKS</strong> — seafood &amp; wine
-            (<a href="https://www.roks.fo/" target="_blank" rel="noopener">site</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=ROKS+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
-          </li>
-          <li><strong>Ræst</strong> — cuisine fermentée
-            (<a href="https://raest.fo/raest/" target="_blank" rel="noopener">site</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=R%C3%A6st+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
-          </li>
-          <li><strong>Áarstova</strong> — agneau &amp; seafood
-            (<a href="https://aarstova.fo/aarstova/" target="_blank" rel="noopener">site</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=%C3%81arstova+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
-          </li>
+    <div class="stage-grid">
+      <article class="stage-card">
+        <h3>J1 — Arrivée + Tórshavn</h3>
+        <div class="stage-meta"><span class="tag">mise en route</span><span class="tag">courses</span><span class="tag">centre-ville</span></div>
+        <ul class="choice-list">
+          <li><strong>Tinganes</strong><span>Balade courte dans le vieux quartier rouge, parfaite après le vol.</span></li>
+          <li><strong>Port de Tórshavn</strong><span>Repère simple pour se poser, manger et vérifier le rythme du séjour.</span></li>
+          <li><strong>Courses</strong><span>Snacks, pique-niques, thermos, pharmacie et petit-déj pour les journées isolées.</span></li>
         </ul>
       </article>
 
       <article class="stage-card">
-        <h3>J2 — Streymoy : Vestmanna, Saksun, Tjørnuvík</h3>
+        <h3>J2 — Streymoy</h3>
         <div class="stage-meta"><span class="tag">villages</span><span class="tag">falaises</span><span class="tag">photo</span></div>
         <ul class="choice-list">
-          <li><strong>Vestmanna</strong><span>Base pratique pour falaises, port et pause café ; à choisir si la mer/visibilité est correcte.</span></li>
-          <li><strong>Saksun</strong><span>Lagune, village et ambiance très féroïenne ; prévoir respect des zones privées et stationnement propre.</span></li>
-          <li><strong>Tjørnuvík</strong><span>Plage noire et vue vers Risin og Kellingin ; très bon spot si le vent reste raisonnable.</span></li>
-          <li><strong>Fossá</strong><span>Cascade majeure de Streymoy, arrêt court possible sur la route selon le timing.</span></li>
-          <li><strong>Plan B Tórshavn</strong><span>National Gallery, Nordic House, boutiques de laine, cafés et balade abritée.</span></li>
+          <li><strong>Vestmanna</strong><span>Base pratique pour falaises, port et pause café si mer/visibilité correctes.</span></li>
+          <li><strong>Saksun</strong><span>Lagune, village et ambiance très féroïenne ; respecter zones privées et stationnement.</span></li>
+          <li><strong>Tjørnuvík</strong><span>Plage noire et vue vers Risin og Kellingin si le vent reste raisonnable.</span></li>
+          <li><strong>Fossá</strong><span>Cascade majeure, arrêt court possible sur la route selon le timing.</span></li>
         </ul>
       </article>
 
       <article class="stage-card">
-        <h3>J3 — Eysturoy : Gjógv, Eiði, Funningur</h3>
+        <h3>J3 — Eysturoy</h3>
         <div class="stage-meta"><span class="tag">panoramas</span><span class="tag">balade facile</span><span class="tag">villages</span></div>
         <ul class="choice-list">
-          <li><strong>Gjógv</strong><span>Port naturel, village photogénique et balade courte en bord de gorge.</span></li>
-          <li><strong>Eiði</strong><span>Vue sur Risin og Kellingin ; excellent arrêt photo sans grosse randonnée.</span></li>
+          <li><strong>Gjógv</strong><span>Port naturel, village photogénique et marche courte en bord de gorge.</span></li>
+          <li><strong>Eiði</strong><span>Vue sur Risin og Kellingin, excellent arrêt photo sans grosse randonnée.</span></li>
           <li><strong>Funningur</strong><span>Village calme dans un fjord, bon complément moins fréquenté.</span></li>
-          <li><strong>Slættaratindur</strong><span>Option sportive uniquement si météo stable, visibilité bonne et groupe motivé.</span></li>
-          <li><strong>Runavík / Glyvrar</strong><span>Alternative météo : cafés, petits commerces, pauses entre averses.</span></li>
-        </ul>
-      </div>
-
-      <div class="card" style="background:#f7fbff">
-        <h3>Klaksvík</h3>
-
-        <div class="row" style="margin-top:8px">
-          <span class="tag">Café / brunch €</span>
-        </div>
-        <ul>
-          <li><strong>Fríða Kaffihús</strong>
-            (<a href="https://travelguide.fo/listing/frida-kaffihus/" target="_blank" rel="noopener">infos</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=Fr%C3%AD%C3%B0a+Kaffih%C3%BAs+Klaksv%C3%ADk" target="_blank" rel="noopener">carte</a>)
-          </li>
+          <li><strong>Slættaratindur</strong><span>Option sportive seulement si météo stable, visibilité bonne et groupe motivé.</span></li>
         </ul>
       </article>
 
       <article class="stage-card">
-        <h3>J5 — Kalsoy ou Nord facile</h3>
-        <div class="stage-meta"><span class="tag">ferry</span><span class="tag">villages</span><span class="tag">plan B voiture</span></div>
+        <h3>J4 / J5 / J6 — Nord</h3>
+        <div class="stage-meta"><span class="tag">Klaksvík</span><span class="tag">Kalsoy</span><span class="tag">Viðoy</span></div>
         <ul class="choice-list">
-          <li><strong>Kalsoy</strong><span>Villages, ambiance isolée et paysages dramatiques ; dépend fortement du ferry et du vent.</span></li>
-          <li><strong>Mikladalur</strong><span>Statue Kópakonan et balade de village si vous traversez sur Kalsoy.</span></li>
-          <li><strong>Trøllanes</strong><span>Extrémité nord, accès selon horaires ; rester prudent hors sentiers.</span></li>
-          <li><strong>Kunoy</strong><span>Plan B sans ferry : village calme, route panoramique, photos entre averses.</span></li>
-          <li><strong>Viðareiði</strong><span>Plan B très fort visuellement : village au bout de Viðoy, mer et montagnes.</span></li>
+          <li><strong>Kalsoy</strong><span>Paysages dramatiques, villages isolés ; dépend fortement du ferry et du vent.</span></li>
+          <li><strong>Mikladalur</strong><span>Statue Kópakonan et balade de village si la traversée est validée.</span></li>
+          <li><strong>Viðareiði</strong><span>Très fort visuellement, bon plan B sans ferry au bout de Viðoy.</span></li>
+          <li><strong>Christianskirkjan</strong><span>Visite culturelle à Klaksvík, solide option pluie.</span></li>
         </ul>
       </article>
 
       <article class="stage-card">
-        <h3>J6 — Viðoy, Kunoy, Klaksvík</h3>
-        <div class="stage-meta"><span class="tag">nature</span><span class="tag">sécurité</span><span class="tag">vue Nord</span></div>
+        <h3>J7 — Vágar</h3>
+        <div class="stage-meta"><span class="tag">lac</span><span class="tag">cascade</span><span class="tag">dernier soir</span></div>
         <ul class="choice-list">
-          <li><strong>Viðareiði</strong><span>Grand classique du Nord, superbe même sans randonnée longue.</span></li>
-          <li><strong>Villingadalsfjall</strong><span>Option rando exigeante : seulement si vent, visibilité et niveau du groupe sont OK.</span></li>
-          <li><strong>Kunoy village</strong><span>Version douce : balade courte, photos, route scénique.</span></li>
-          <li><strong>Christianskirkjan</strong><span>Visite culturelle à Klaksvík, très bonne option pluie.</span></li>
-          <li><strong>Port de Klaksvík</strong><span>Balade facile + café + courses pour le soir.</span></li>
-        </ul>
-
-        <div class="callout ok small">
-          Bon plan : garder 1 soir “cuisine maison” (repos + météo) et 1 soir resto.
-        </div>
-      </div>
-
-      <div class="card" style="background:#f7fbff">
-        <h3>Vágar (Sandavágur / Sørvágur / Gásadalur / Bøur)</h3>
-
-        <div class="row" style="margin-top:8px">
-          <span class="tag">Local / café €–€€</span>
-        </div>
-        <ul>
-          <li><strong>Fiskastykkið</strong> (Sandavágur)
-            (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste Visit Vágar</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=Fiskastykki%C3%B0+Sandav%C3%A1gur" target="_blank" rel="noopener">carte</a>)
-          </li>
-          <li><strong>Café Zorva</strong> (Sørvágur)
-            (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9+Zorva+S%C3%B8rv%C3%A1gur" target="_blank" rel="noopener">carte</a>)
-          </li>
-          <li><strong>Gásadalsgarður</strong> (Gásadalur)
-            (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=G%C3%A1sadalsgar%C3%B0ur+G%C3%A1sadalur" target="_blank" rel="noopener">carte</a>)
-          </li>
-          <li><strong>Smiðjan</strong> (Vágar)
-            (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=Smi%C3%B0jan+V%C3%A1gar" target="_blank" rel="noopener">carte</a>)
-          </li>
-          <li><strong>Pollastova</strong> (Sørvágur)
-            (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=Pollastova+S%C3%B8rv%C3%A1gur" target="_blank" rel="noopener">carte</a>)
-          </li>
+          <li><strong>Sørvágsvatn / Trælanípa</strong><span>Rando phare du séjour si météo et visibilité sont bonnes.</span></li>
+          <li><strong>Múlafossur</strong><span>Cascade iconique à Gásadalur, très bon repère de fin de voyage.</span></li>
+          <li><strong>Bøur</strong><span>Village et vues sur Tindhólmur, arrêt court mais très photogénique.</span></li>
         </ul>
       </article>
 
       <article class="stage-card">
-        <h3>J8 — Départ</h3>
-        <div class="stage-meta"><span class="tag">sans stress</span><span class="tag">aéroport</span></div>
+        <h3>Plans B météo</h3>
+        <div class="stage-meta"><span class="tag">pluie</span><span class="tag">vent</span><span class="tag">repos</span></div>
         <ul class="choice-list">
-          <li><strong>Trajet direct aéroport</strong><span>Priorité : carburant, photos voiture, restitution, marge météo.</span></li>
-          <li><strong>Pause courte à Sørvágur</strong><span>Uniquement si tout est prêt et que l’horaire est confortable.</span></li>
+          <li><strong>Tórshavn indoor</strong><span>National Gallery, Nordic House, cafés, boutiques de laine.</span></li>
+          <li><strong>Routes panoramiques courtes</strong><span>Choisir des arrêts faciles sans engagement en falaise ou crête.</span></li>
+          <li><strong>Airbnb + dîner réservé</strong><span>Garder de l’énergie au lieu de forcer une mauvaise fenêtre météo.</span></li>
         </ul>
       </article>
     </div>
@@ -972,6 +928,32 @@
   const pretripChecks = document.querySelectorAll('[data-checklist="pretrip"] input[type="checkbox"]');
   const prepProgress = document.getElementById('prepProgress');
   const prepPercent = document.getElementById('prepPercent');
+  const appPages = [...document.querySelectorAll('.app-page')];
+  const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
+
+  function showAppPage(pageId, shouldPush = true){
+    const target = document.getElementById(pageId) ? pageId : 'preparation';
+    appPages.forEach((page) => page.classList.toggle('active', page.id === target));
+    navLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${target}`));
+    document.body.dataset.activePage = target;
+    if (shouldPush && window.location.hash !== `#${target}`) {
+      history.pushState(null, '', `#${target}`);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      showAppPage(link.getAttribute('href').slice(1));
+    });
+  });
+
+  window.addEventListener('popstate', () => {
+    showAppPage(window.location.hash.slice(1) || 'preparation', false);
+  });
+
+  showAppPage(window.location.hash.slice(1) || 'preparation', false);
 
   function updateProgress(){
     const done = [...pretripChecks].filter((item) => item.checked).length;
