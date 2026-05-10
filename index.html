@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="expires" content="0" />
   <title>Carnet de voyage — Îles Féroé (12–19 juin 2026)</title>
   <style>
     :root{
@@ -166,6 +169,7 @@
           <span class="pill">Voiture Europcar</span>
           <span class="pill">Logements Airbnb réservés</span>
           <span class="pill">Objectif : visites, restos, randos</span>
+          <span class="pill version-badge">MAJ visible : app mobile par sections — 10/05/2026</span>
         </div>
       </div>
       <div class="row">
@@ -175,11 +179,13 @@
     </div>
 
     <nav aria-label="Navigation">
+      <a href="#preparation">Prépa</a>
       <a href="#essentiel">Essentiel</a>
       <a href="#reservations">Réservations</a>
       <a href="#planning">Planning</a>
       <a href="#cartes">Cartes</a>
       <a href="#jours">Jour par jour</a>
+      <a href="#visites">Visites</a>
       <a href="#restaurants">Restaurants</a>
       <a href="#randonnees">Randonnées</a>
       <a href="#pratique">Infos pratiques</a>
@@ -207,7 +213,7 @@
     </div>
   </section>
 
-  <section id="essentiel" class="grid cols-3">
+  <section id="essentiel" class="grid cols-3 app-page">
     <div class="card">
       <h2>Essentiel (à garder sous la main)</h2>
       <div class="kvs">
@@ -254,7 +260,7 @@
     </div>
   </section>
 
-  <section id="reservations" class="grid cols-2">
+  <section id="reservations" class="grid cols-2 app-page">
     <div class="card">
       <h2>Logements réservés (liens)</h2>
       <p class="muted small">Ces liens servent de “rappel” pour retrouver l’annonce, les messages, les consignes d’arrivée.</p>
@@ -311,7 +317,7 @@
     </div>
   </section>
 
-  <section id="planning" class="card">
+  <section id="planning" class="card app-page">
     <h2>Planning synthèse</h2>
     <table class="table" aria-label="Planning synthèse">
       <thead>
@@ -682,25 +688,29 @@
              <a href="https://www.google.com/maps/search/?api=1&amp;query=%C3%81arstova+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
           </li>
         </ul>
+      </article>
 
-        <div class="row" style="margin-top:10px">
-          <span class="tag">Poisson / local €€</span>
-        </div>
-        <ul>
-          <li><strong>Barbara Fish House</strong> — seafood
-            (<a href="https://barbara.fo/barbara/" target="_blank" rel="noopener">site</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=Barbara+Fish+House+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
-          </li>
+      <article class="stage-card">
+        <h3>J2 — Streymoy : Vestmanna, Saksun, Tjørnuvík</h3>
+        <div class="stage-meta"><span class="tag">villages</span><span class="tag">falaises</span><span class="tag">photo</span></div>
+        <ul class="choice-list">
+          <li><strong>Vestmanna</strong><span>Base pratique pour falaises, port et pause café ; à choisir si la mer/visibilité est correcte.</span></li>
+          <li><strong>Saksun</strong><span>Lagune, village et ambiance très féroïenne ; prévoir respect des zones privées et stationnement propre.</span></li>
+          <li><strong>Tjørnuvík</strong><span>Plage noire et vue vers Risin og Kellingin ; très bon spot si le vent reste raisonnable.</span></li>
+          <li><strong>Fossá</strong><span>Cascade majeure de Streymoy, arrêt court possible sur la route selon le timing.</span></li>
+          <li><strong>Plan B Tórshavn</strong><span>National Gallery, Nordic House, boutiques de laine, cafés et balade abritée.</span></li>
         </ul>
+      </article>
 
-        <div class="row" style="margin-top:10px">
-          <span class="tag">Sushi / asiatique €€</span>
-        </div>
-        <ul>
-          <li><strong>Etika</strong> — sushi
-            (<a href="https://visitfaroeislands.com/en/whatson/places/place/etika00" target="_blank" rel="noopener">infos</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=Etika+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
-          </li>
+      <article class="stage-card">
+        <h3>J3 — Eysturoy : Gjógv, Eiði, Funningur</h3>
+        <div class="stage-meta"><span class="tag">panoramas</span><span class="tag">balade facile</span><span class="tag">villages</span></div>
+        <ul class="choice-list">
+          <li><strong>Gjógv</strong><span>Port naturel, village photogénique et balade courte en bord de gorge.</span></li>
+          <li><strong>Eiði</strong><span>Vue sur Risin og Kellingin ; excellent arrêt photo sans grosse randonnée.</span></li>
+          <li><strong>Funningur</strong><span>Village calme dans un fjord, bon complément moins fréquenté.</span></li>
+          <li><strong>Slættaratindur</strong><span>Option sportive uniquement si météo stable, visibilité bonne et groupe motivé.</span></li>
+          <li><strong>Runavík / Glyvrar</strong><span>Alternative météo : cafés, petits commerces, pauses entre averses.</span></li>
         </ul>
       </div>
 
@@ -716,24 +726,29 @@
              <a href="https://www.google.com/maps/search/?api=1&amp;query=Fr%C3%AD%C3%B0a+Kaffih%C3%BAs+Klaksv%C3%ADk" target="_blank" rel="noopener">carte</a>)
           </li>
         </ul>
+      </article>
 
-        <div class="row" style="margin-top:10px">
-          <span class="tag">Steakhouse €€</span>
-        </div>
-        <ul>
-          <li><strong>Angus Steakhouse</strong>
-            (<a href="https://visitfaroeislands.com/en/whatson/places/place/angus-steakhouse0?lang=en" target="_blank" rel="noopener">infos</a> ·
-             <a href="https://www.google.com/maps/search/?api=1&amp;query=Angus+Steakhouse+Klaksv%C3%ADk" target="_blank" rel="noopener">carte</a>)
-          </li>
+      <article class="stage-card">
+        <h3>J5 — Kalsoy ou Nord facile</h3>
+        <div class="stage-meta"><span class="tag">ferry</span><span class="tag">villages</span><span class="tag">plan B voiture</span></div>
+        <ul class="choice-list">
+          <li><strong>Kalsoy</strong><span>Villages, ambiance isolée et paysages dramatiques ; dépend fortement du ferry et du vent.</span></li>
+          <li><strong>Mikladalur</strong><span>Statue Kópakonan et balade de village si vous traversez sur Kalsoy.</span></li>
+          <li><strong>Trøllanes</strong><span>Extrémité nord, accès selon horaires ; rester prudent hors sentiers.</span></li>
+          <li><strong>Kunoy</strong><span>Plan B sans ferry : village calme, route panoramique, photos entre averses.</span></li>
+          <li><strong>Viðareiði</strong><span>Plan B très fort visuellement : village au bout de Viðoy, mer et montagnes.</span></li>
         </ul>
+      </article>
 
-        <div class="row" style="margin-top:10px">
-          <span class="tag">Pizza / casual €</span>
-        </div>
-        <ul>
-          <li><strong>Reydleyk Klaksvík</strong> — pizza (port)
-            (<a href="https://www.google.com/maps/search/?api=1&amp;query=Reydleyk+Klaksv%C3%ADk" target="_blank" rel="noopener">carte</a>)
-          </li>
+      <article class="stage-card">
+        <h3>J6 — Viðoy, Kunoy, Klaksvík</h3>
+        <div class="stage-meta"><span class="tag">nature</span><span class="tag">sécurité</span><span class="tag">vue Nord</span></div>
+        <ul class="choice-list">
+          <li><strong>Viðareiði</strong><span>Grand classique du Nord, superbe même sans randonnée longue.</span></li>
+          <li><strong>Villingadalsfjall</strong><span>Option rando exigeante : seulement si vent, visibilité et niveau du groupe sont OK.</span></li>
+          <li><strong>Kunoy village</strong><span>Version douce : balade courte, photos, route scénique.</span></li>
+          <li><strong>Christianskirkjan</strong><span>Visite culturelle à Klaksvík, très bonne option pluie.</span></li>
+          <li><strong>Port de Klaksvík</strong><span>Balade facile + café + courses pour le soir.</span></li>
         </ul>
 
         <div class="callout ok small">
@@ -769,17 +784,102 @@
              <a href="https://www.google.com/maps/search/?api=1&amp;query=Pollastova+S%C3%B8rv%C3%A1gur" target="_blank" rel="noopener">carte</a>)
           </li>
         </ul>
+      </article>
 
-        <div class="callout warn small">
-          Sur Vágar/Mykines : horaires variables. Vérifier la veille (et prévoir plan B : courses).
-        </div>
-      </div>
+      <article class="stage-card">
+        <h3>J8 — Départ</h3>
+        <div class="stage-meta"><span class="tag">sans stress</span><span class="tag">aéroport</span></div>
+        <ul class="choice-list">
+          <li><strong>Trajet direct aéroport</strong><span>Priorité : carburant, photos voiture, restitution, marge météo.</span></li>
+          <li><strong>Pause courte à Sørvágur</strong><span>Uniquement si tout est prêt et que l’horaire est confortable.</span></li>
+        </ul>
+      </article>
+    </div>
+  </section>
 
+  <section id="restaurants" class="card app-page">
+    <h2>Restaurants & pauses par étape</h2>
+    <p class="muted small">Base de choix élargie : mix entre restaurants, cafés, snacks, options budget et plans B courses/cuisine maison. Vérifiez toujours horaires et réservation la veille.</p>
+
+    <div class="stage-grid">
+      <article class="stage-card">
+        <h3>J1 / J2 / J3 — Base Tórshavn</h3>
+        <div class="stage-meta"><span class="tag">réserver 1 soir</span><span class="tag">plus grand choix</span><span class="tag">plan pluie</span></div>
+        <ul class="choice-list">
+          <li><strong>KOKS / expérience gastro</strong><span>Pour une soirée exceptionnelle si ouvert et compatible budget/logistique ; réservation indispensable.</span></li>
+          <li><strong>ROKS</strong><span>Seafood & wine, très adapté à un dîner “beau voyage”.</span></li>
+          <li><strong>Ræst</strong><span>Cuisine fermentée locale : expérience forte, à choisir si le groupe aime découvrir.</span></li>
+          <li><strong>Áarstova</strong><span>Agneau, poisson, ambiance maison ancienne ; bon choix local confortable.</span></li>
+          <li><strong>Barbara Fish House</strong><span>Poisson/seafood, option plus directe pour une envie de produits de la mer.</span></li>
+          <li><strong>Etika</strong><span>Sushi/asiatique, pratique si le groupe veut changer du local.</span></li>
+          <li><strong>Cafés & boulangeries du centre</strong><span>Parfait pour petit-déj tardif, plan B pluie, ou pause avant route.</span></li>
+          <li><strong>Courses à Tórshavn</strong><span>À faire dès J1/J2 : petit-déj, pique-niques, thermos, snacks pour routes isolées.</span></li>
+        </ul>
+      </article>
+
+      <article class="stage-card">
+        <h3>J2 — Route Vestmanna / Saksun / Tjørnuvík</h3>
+        <div class="stage-meta"><span class="tag">pique-nique</span><span class="tag">peu d’options</span><span class="tag">retour Tórshavn</span></div>
+        <ul class="choice-list">
+          <li><strong>Pique-nique abrité</strong><span>Option la plus fiable : pain, fromage, soupe/thermos, fruits, chocolat.</span></li>
+          <li><strong>Vestmanna</strong><span>À viser pour café/snack si ouvert ; bon point de pause logistique.</span></li>
+          <li><strong>Retour Tórshavn dîner</strong><span>Le plus confortable pour un vrai restaurant après la boucle.</span></li>
+          <li><strong>Plan B météo</strong><span>Déjeuner café en ville + petite sortie courte quand la pluie se calme.</span></li>
+        </ul>
+      </article>
+
+      <article class="stage-card">
+        <h3>J3 — Eysturoy / Gjógv / Eiði</h3>
+        <div class="stage-meta"><span class="tag">cafés villages</span><span class="tag">souple</span><span class="tag">retour capitale</span></div>
+        <ul class="choice-list">
+          <li><strong>Gjógv pause café</strong><span>Bon arrêt si ouvert : boisson chaude + marche courte.</span></li>
+          <li><strong>Runavík / Glyvrar</strong><span>Zone plus pratique pour trouver café/snack ou supermarché.</span></li>
+          <li><strong>Pique-nique panorama</strong><span>À garder comme option principale si le timing est serré.</span></li>
+          <li><strong>Dîner Tórshavn</strong><span>Réserver un restaurant ce soir si J2 a été simple.</span></li>
+        </ul>
+      </article>
+
+      <article class="stage-card">
+        <h3>J4 / J5 / J6 — Base Klaksvík</h3>
+        <div class="stage-meta"><span class="tag">nord</span><span class="tag">réserver/anticiper</span><span class="tag">cuisine maison utile</span></div>
+        <ul class="choice-list">
+          <li><strong>Fríða Kaffihús</strong><span>Café/brunch/pause chaude à Klaksvík, très utile entre deux sorties météo.</span></li>
+          <li><strong>Angus Steakhouse</strong><span>Option dîner plus consistante après une journée froide/venteuse.</span></li>
+          <li><strong>Reydleyk Klaksvík</strong><span>Pizza/casual près du port : pratique pour groupe et horaires simples.</span></li>
+          <li><strong>Cuisine maison Airbnb</strong><span>À prévoir au moins un soir dans le Nord : moins de stress, météo flexible.</span></li>
+          <li><strong>Pique-nique Kalsoy / Viðoy</strong><span>Indispensable les jours de ferry ou villages isolés.</span></li>
+          <li><strong>Courses Klaksvík</strong><span>Refaire le plein snacks, petit-déj, boissons chaudes avant J5/J6.</span></li>
+        </ul>
+      </article>
+
+      <article class="stage-card">
+        <h3>J7 — Vágar : Sørvágur / Sandavágur / Gásadalur</h3>
+        <div class="stage-meta"><span class="tag">dernier dîner</span><span class="tag">horaires variables</span><span class="tag">proche aéroport</span></div>
+        <ul class="choice-list">
+          <li><strong>Fiskastykkið (Sandavágur)</strong><span>Très bon candidat pour déjeuner/dîner côté Vágar si ouvert.</span></li>
+          <li><strong>Café Zorva (Sørvágur)</strong><span>Option simple et pratique près de la base/aéroport.</span></li>
+          <li><strong>Gásadalsgarður</strong><span>Pause à Gásadalur après Múlafossur si les horaires collent.</span></li>
+          <li><strong>Smiðjan</strong><span>Alternative locale à vérifier selon ouverture.</span></li>
+          <li><strong>Pollastova</strong><span>Autre option côté Sørvágur ; utile en plan B.</span></li>
+          <li><strong>Dernières courses</strong><span>Préparer petit-déj J8 + vérifier carburant et timing restitution.</span></li>
+        </ul>
+      </article>
+
+      <article class="stage-card">
+        <h3>Règle de décision repas</h3>
+        <div class="stage-meta"><span class="tag">simple</span><span class="tag">groupe de 4</span></div>
+        <ul class="choice-list">
+          <li><strong>Si route/ferry : pique-nique</strong><span>On évite de dépendre d’un restaurant isolé.</span></li>
+          <li><strong>Si météo mauvaise : café + dîner réservé</strong><span>La journée reste confortable même avec peu de visites.</span></li>
+          <li><strong>Si grosse rando : dîner facile</strong><span>Pizza/steakhouse/cuisine maison plutôt que gastro longue.</span></li>
+          <li><strong>Si dernier soir : rester proche de Vágar</strong><span>Ne pas finir loin de l’aéroport avant le vol retour.</span></li>
+        </ul>
+      </article>
     </div>
   </section>
 
 
-  <section id="randonnees" class="grid cols-2">
+  <section id="randonnees" class="grid cols-2 app-page">
     <div class="card">
       <h2>Randonnées (choix pragmatique)</h2>
       <p class="muted small">Objectif : 1 rando “signature” + 2–3 balades faciles. Ne pas surcharger.</p>
@@ -806,7 +906,7 @@
     </div>
   </section>
 
-  <section id="pratique" class="grid cols-2">
+  <section id="pratique" class="grid cols-2 app-page">
     <div class="card">
       <h2>Infos pratiques — conduite</h2>
       <ul>
@@ -832,7 +932,7 @@
     </div>
   </section>
 
-  <section id="checklists" class="grid cols-2">
+  <section id="checklists" class="grid cols-2 app-page">
     <div class="card">
       <h2>Checklist “matin”</h2>
       <div class="checklist" data-checklist="matin">
@@ -861,7 +961,7 @@
   <div class="small">
     <strong>Mode d’emploi :</strong> ce carnet est volontairement “offline-friendly”. Ajoutez vos liens (Maps/restos) au fil de l’eau.
     <div class="hr"></div>
-    <span class="muted">Version : séjour (logements + voiture déjà réservés).</span>
+    <span class="muted">Version : mobile par sections — mise à jour du 10/05/2026. Si GitHub Pages affiche encore l’ancienne page, ouvrir avec <code>?v=mobile-20260510</code> ou vider le cache.</span>
   </div>
 </footer>
 
