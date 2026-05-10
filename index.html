@@ -36,7 +36,6 @@
       display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--border);
       border-radius:999px; background:#eef6ff; color:var(--text); font-size:13px;
     }
-    .version-badge{background:linear-gradient(90deg, #0ea5e9, #8b5cf6); color:#fff; border-color:transparent; font-weight:700}
     nav{ margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; }
     nav a{
       padding:8px 12px; border:1px solid var(--border); border-radius:999px;
@@ -139,41 +138,6 @@
     .tab-btn.active{background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#fff; border-color:transparent}
     .map-frame{width:100%; height:360px; border:1px solid var(--border); border-radius:14px}
 
-    .stage-grid{display:grid; gap:14px; margin-top:12px}
-    @media (min-width: 860px){.stage-grid{grid-template-columns: repeat(2, minmax(0,1fr))}}
-    .stage-card{background:#f7fbff; border:1px solid var(--border); border-radius:16px; padding:14px}
-    .stage-card h3{color:var(--text); font-size:15px; margin-bottom:6px}
-    .stage-meta{display:flex; gap:6px; flex-wrap:wrap; margin:8px 0 10px}
-    .choice-list{display:grid; gap:8px; margin:10px 0 0; padding:0; list-style:none}
-    .choice-list li{background:#fff; border:1px solid rgba(16,33,63,.10); border-radius:12px; padding:9px 10px}
-    .choice-list strong{display:block; margin-bottom:2px}
-    .quick-note{font-size:12px; color:var(--muted); margin-top:8px}
-    nav a.active{background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#fff; border-color:transparent}
-    @media (max-width: 760px){
-      body{background:#eef6ff; font-size:16px}
-      header{padding:14px 12px 10px; max-height:48vh; overflow:auto}
-      h1{font-size:18px; line-height:1.2}
-      .title{gap:10px}
-      .title > .row{width:100%; justify-content:space-between}
-      nav{display:flex; overflow-x:auto; flex-wrap:nowrap; gap:8px; padding:2px 0 8px; scroll-snap-type:x proximity}
-      nav a{white-space:nowrap; scroll-snap-align:start; padding:10px 12px}
-      main{padding:12px 10px 84px}
-      section{margin:12px 0}
-      .app-page{display:none !important}
-      .app-page.active-page{display:block !important}
-      .app-page.grid.active-page{display:grid !important; grid-template-columns:1fr !important}
-      .card{border-radius:18px; padding:14px; box-shadow:0 8px 18px rgba(15,23,42,.08)}
-      .kvs{grid-template-columns:1fr; gap:2px}
-      .kvs div:nth-child(odd){font-weight:700; color:var(--muted); padding-bottom:0}
-      .kvs div:nth-child(even){padding-top:0}
-      .table{display:block; overflow-x:auto; white-space:nowrap}
-      .map-frame{height:300px}
-      .stage-grid{grid-template-columns:1fr}
-      .stage-card{padding:12px}
-      .choice-list li{padding:10px}
-      #backToTop{right:10px; bottom:10px}
-    }
-
     @media print{
       body{background:#fff !important; color:#111 !important;}
       header{position:static; backdrop-filter:none; box-shadow:none;}
@@ -232,7 +196,7 @@
 
 <main class="wrap" id="contenu">
 
-  <section id="preparation" class="card app-page" aria-label="Préparation du séjour">
+  <section class="card" aria-label="Préparation du séjour">
     <h2>Progression de préparation</h2>
     <p class="muted small">Cochez les points faits : l’avancement est sauvegardé automatiquement sur cet appareil.</p>
     <div class="progress-wrap" aria-live="polite">
@@ -430,7 +394,7 @@
     </div>
   </section>
 
-  <section id="cartes" class="grid cols-2 app-page">
+  <section id="cartes" class="grid cols-2">
     <div class="card">
       <h2>Carte des logements</h2>
       <p class="muted small">Onglets rapides pour visualiser les trois bases du séjour.</p>
@@ -461,7 +425,7 @@
     </div>
   </section>
 
-  <section id="jours" class="app-page">
+  <section id="jours">
     <div class="card">
       <h2>Jour par jour (détails opérationnels)</h2>
       <p class="muted small">Chaque jour : une version A (météo correcte) + une version B (météo dégradée). Ajustez selon le vent et les nuages.</p>
@@ -690,18 +654,39 @@
     </div>
   </section>
 
-  <section id="visites" class="card app-page">
-    <h2>Visites & expériences par étape</h2>
-    <p class="muted small">Une base de choix plus large : pour chaque étape, choisissez 1 incontournable + 1 option courte + 1 plan B météo.</p>
+  
+  <section id="restaurants" class="card">
+    <h2>Restaurants (par ville, catégorie &amp; budget)</h2>
+    <p class="muted small">
+      Les budgets sont indicatifs : <strong>€</strong> (simple), <strong>€€</strong> (intermédiaire), <strong>€€€</strong> (expérience).
+      Conseillé : réserver au moins 1–2 soirs à Tórshavn.
+    </p>
 
-    <div class="stage-grid">
-      <article class="stage-card">
-        <h3>J1 — Arrivée Vágar → Tórshavn</h3>
-        <div class="stage-meta"><span class="tag">soir court</span><span class="tag">sans détour</span><span class="tag">fatigue</span></div>
-        <ul class="choice-list">
-          <li><strong>Tinganes & vieux port</strong><span>Promenade douce dans les ruelles rouges du centre historique, parfaite après l’installation.</span></li>
-          <li><strong>Skansin</strong><span>Fort et vue sur le port : court, simple, bon point de repère pour commencer.</span></li>
-          <li><strong>Café / bar tranquille</strong><span>Option météo/fatigue : rester dans le centre et préparer le lendemain.</span></li>
+    <div class="grid cols-3" style="margin-top:12px">
+
+      <div class="card" style="background:#f7fbff">
+        <h3>Tórshavn</h3>
+
+        <div class="row" style="margin-top:8px">
+          <span class="tag">Gastronomique €€€</span>
+        </div>
+        <ul>
+          <li><strong>KOKS</strong> — tasting menu
+            (<a href="https://koks.fo/" target="_blank" rel="noopener">site</a> ·
+             <a href="https://www.google.com/maps/search/?api=1&amp;query=KOKS+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
+          </li>
+          <li><strong>ROKS</strong> — seafood &amp; wine
+            (<a href="https://www.roks.fo/" target="_blank" rel="noopener">site</a> ·
+             <a href="https://www.google.com/maps/search/?api=1&amp;query=ROKS+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
+          </li>
+          <li><strong>Ræst</strong> — cuisine fermentée
+            (<a href="https://raest.fo/raest/" target="_blank" rel="noopener">site</a> ·
+             <a href="https://www.google.com/maps/search/?api=1&amp;query=R%C3%A6st+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
+          </li>
+          <li><strong>Áarstova</strong> — agneau &amp; seafood
+            (<a href="https://aarstova.fo/aarstova/" target="_blank" rel="noopener">site</a> ·
+             <a href="https://www.google.com/maps/search/?api=1&amp;query=%C3%81arstova+T%C3%B3rshavn" target="_blank" rel="noopener">carte</a>)
+          </li>
         </ul>
       </article>
 
@@ -727,16 +712,19 @@
           <li><strong>Slættaratindur</strong><span>Option sportive uniquement si météo stable, visibilité bonne et groupe motivé.</span></li>
           <li><strong>Runavík / Glyvrar</strong><span>Alternative météo : cafés, petits commerces, pauses entre averses.</span></li>
         </ul>
-      </article>
+      </div>
 
-      <article class="stage-card">
-        <h3>J4 — Changement de base : Tórshavn → Klaksvík</h3>
-        <div class="stage-meta"><span class="tag">route utile</span><span class="tag">stops</span><span class="tag">arrivée Nord</span></div>
-        <ul class="choice-list">
-          <li><strong>Eysturoyartunnilin</strong><span>Trajet spectaculaire via tunnel sous-marin ; prévoir péage/conditions.</span></li>
-          <li><strong>Toftir / Nes</strong><span>Pause courte possible côté fjord si vous voulez couper la route.</span></li>
-          <li><strong>Leirvík</strong><span>Dernier arrêt avant les tunnels vers les îles du Nord.</span></li>
-          <li><strong>Klaksvík centre</strong><span>Installation, courses, tour du port et repérage des restaurants.</span></li>
+      <div class="card" style="background:#f7fbff">
+        <h3>Klaksvík</h3>
+
+        <div class="row" style="margin-top:8px">
+          <span class="tag">Café / brunch €</span>
+        </div>
+        <ul>
+          <li><strong>Fríða Kaffihús</strong>
+            (<a href="https://travelguide.fo/listing/frida-kaffihus/" target="_blank" rel="noopener">infos</a> ·
+             <a href="https://www.google.com/maps/search/?api=1&amp;query=Fr%C3%AD%C3%B0a+Kaffih%C3%BAs+Klaksv%C3%ADk" target="_blank" rel="noopener">carte</a>)
+          </li>
         </ul>
       </article>
 
@@ -762,17 +750,39 @@
           <li><strong>Christianskirkjan</strong><span>Visite culturelle à Klaksvík, très bonne option pluie.</span></li>
           <li><strong>Port de Klaksvík</strong><span>Balade facile + café + courses pour le soir.</span></li>
         </ul>
-      </article>
 
-      <article class="stage-card">
-        <h3>J7 — Vágar : Sørvágsvatn, Bøur, Gásadalur</h3>
-        <div class="stage-meta"><span class="tag">iconique</span><span class="tag">cascade</span><span class="tag">dernier soir</span></div>
-        <ul class="choice-list">
-          <li><strong>Sørvágsvatn / Trælanípa</strong><span>Rando signature : partir tôt, vérifier accès, paiement éventuel et météo.</span></li>
-          <li><strong>Bøur</strong><span>Village très photogénique avec vue vers Tindhólmur.</span></li>
-          <li><strong>Gásadalur & Múlafossur</strong><span>Cascade emblématique ; facile à intégrer si la visibilité est correcte.</span></li>
-          <li><strong>Sandavágur</strong><span>Plan B plus bas : village, église, pause café/restaurant.</span></li>
-          <li><strong>Sørvágur</strong><span>Courses, plein, organisation de la restitution voiture.</span></li>
+        <div class="callout ok small">
+          Bon plan : garder 1 soir “cuisine maison” (repos + météo) et 1 soir resto.
+        </div>
+      </div>
+
+      <div class="card" style="background:#f7fbff">
+        <h3>Vágar (Sandavágur / Sørvágur / Gásadalur / Bøur)</h3>
+
+        <div class="row" style="margin-top:8px">
+          <span class="tag">Local / café €–€€</span>
+        </div>
+        <ul>
+          <li><strong>Fiskastykkið</strong> (Sandavágur)
+            (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste Visit Vágar</a> ·
+             <a href="https://www.google.com/maps/search/?api=1&amp;query=Fiskastykki%C3%B0+Sandav%C3%A1gur" target="_blank" rel="noopener">carte</a>)
+          </li>
+          <li><strong>Café Zorva</strong> (Sørvágur)
+            (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste</a> ·
+             <a href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9+Zorva+S%C3%B8rv%C3%A1gur" target="_blank" rel="noopener">carte</a>)
+          </li>
+          <li><strong>Gásadalsgarður</strong> (Gásadalur)
+            (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste</a> ·
+             <a href="https://www.google.com/maps/search/?api=1&amp;query=G%C3%A1sadalsgar%C3%B0ur+G%C3%A1sadalur" target="_blank" rel="noopener">carte</a>)
+          </li>
+          <li><strong>Smiðjan</strong> (Vágar)
+            (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste</a> ·
+             <a href="https://www.google.com/maps/search/?api=1&amp;query=Smi%C3%B0jan+V%C3%A1gar" target="_blank" rel="noopener">carte</a>)
+          </li>
+          <li><strong>Pollastova</strong> (Sørvágur)
+            (<a href="https://visitvagar.fo/en/see-do0/activities/eat-drink" target="_blank" rel="noopener">liste</a> ·
+             <a href="https://www.google.com/maps/search/?api=1&amp;query=Pollastova+S%C3%B8rv%C3%A1gur" target="_blank" rel="noopener">carte</a>)
+          </li>
         </ul>
       </article>
 
@@ -1016,20 +1026,6 @@
       });
     });
   });
-
-
-  const pageSections = [...document.querySelectorAll('.app-page[id]')];
-  const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
-
-  function showPageFromHash(){
-    const requested = window.location.hash ? window.location.hash.slice(1) : 'preparation';
-    const target = pageSections.some((section) => section.id === requested) ? requested : 'preparation';
-    pageSections.forEach((section) => section.classList.toggle('active-page', section.id === target));
-    navLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${target}`));
-  }
-
-  window.addEventListener('hashchange', showPageFromHash);
-  showPageFromHash();
 
 </script>
 
